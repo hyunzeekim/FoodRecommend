@@ -1,0 +1,23 @@
+Name		Price	Spicy	Hot	Calories	Restrictions	Bread	Salad	Soup	
+Bruschetta	11.00	Mild	Cold	400		Gluten		Y	N	N
+Garlic Bread	5.50	Spicy	Hot	300		Gluten		Y	N	N
+Baguette	4.00	Mild	Hot	250		Gluten		Y	N	N
+Baguette	4.50	Mild	Hot 	200		None		Y	N	N
+Waffles		7.00	Mild	Hot	500		Gluten		Y	N	N
+Bread Roll	3.00	Mild	Hot	200		Gluten		Y	N	N
+Bread Roll	3.40	Mild	Hot	200		None		Y	N	N
+Caesar Salad	9.00	Mild	Cold	500		None		N	Y	N
+Chicken Salad	14.00	Mild	Cold	500		Meat		N	Y	N
+Mixed Nut Salad	11.00	Mild	Cold	400		Peanuts		N 	Y	N
+Kale Salad	13.25	Mild	Cold	350		None		N 	Y	N
+Pepper Salad	12.00	Spicy	Cold	240		None		N	Y	N
+Quinoa Salad	14.50	Mild	Cold	350		None		N	Y	N
+Fruit Salad	8.50	Mild	Cold	150		None		N 	Y	N
+Chicken Soup	7.40	Mild	Hot	300		Meat		N	N	Y
+Tomato Soup	4.50	Mild	Cold	150		None		N 	N	Y
+Chilli		6.50	Spicy	Hot	350		None		N	N 	Y
+Onion Soup	5.00	Spicy	Hot	300		Gluten		N	N	Y
+Veggie Soup	4.00	Mild	Hot	150		None		N	N	Y
+Mushroom Soup	5.00	Mild	Hot	400		None		N	N 	Y
+
+	
