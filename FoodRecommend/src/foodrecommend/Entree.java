@@ -22,7 +22,18 @@ public class Entree extends Food {
                 
     }   
     
-    public void checkFood( int i ,String r, ){
+    public Food checkFood(Food other){
+        super.checkFood;
+        
+        if(other.meat == true && this.meat == true){
+        }
+        
+        if(other.veg == true && this.veg == true){
+        }
+        
+        if(other.highcarbs == true && this.highcarbs == true){
+        }
+        
         
     }
     
