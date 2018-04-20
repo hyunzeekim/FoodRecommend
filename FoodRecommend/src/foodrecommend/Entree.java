@@ -22,7 +22,8 @@ public class Entree extends Food {
                 
     }   
     
-    public void checkRestrictions( String r, ){
+    public void checkFood( int i ,String r, ){
+        
     }
     
     
