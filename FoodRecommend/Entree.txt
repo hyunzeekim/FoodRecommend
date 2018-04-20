@@ -1,0 +1,39 @@
+!Pastrmajlija@		10 false true 600 Pork true false false
+!Sirloin Steak@ 	15 false true 420 none true false false 
+!Feoijoda@ 		10 false true 380 none false true false
+!Chilli Chicken@ 	8  true  true 310 none true false false
+!Sandwich@ 		5  false false 420 none true false false
+!Gluten Free Sandwich@  8  false false 400 gluten false false true
+!Spaghetti@ 		10 false true 650 none false false true
+!Sushi Meal@ 		20 false false 900 none true false false
+!Quinoa Sushi Meal@ 	15 false false 700 none false false true
+!Eggs Benedict@ 	10 false true 450 none false true false
+!Veggie Burger@ 	8  false true 280 gluten false true false
+!6 0z Beef Burger@	10 false true 300 none true false false
+!Spicy Fried Rice@ 	15 true true 200 none false false true
+!Pulled Pork Poutine@   15 true true 850 Pork true false false
+!Spicy Cold Noodles@  	10 true false 150 none false false true
+!Lobster Thermidor@     30 true false 500 none true false false
+!Caviar with Egg@ 	40 false false 300 none false true false
+!Chicken Shwarama@ 	15 true true 450 none true false false
+!Szechwan Shrimps@	20 true false 400 none true false false
+!Grilled Spicy Halibut@	15 true treu 230 none true false false
+
+
+
+
+
+
+
+
+
+
+
+
+
+Food:(int price, boolean spice, boolean hot, int calorie, String restrictions)
+Appetizers(boolean bread,  boolean salad, boolean soup):
+	
+Entree(boolean meat, boolean veg, boolean high carbs):
+	
+Desserts (boolean beverage, boolean fruit, boolean cake)
