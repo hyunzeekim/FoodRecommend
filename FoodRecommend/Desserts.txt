@@ -1,7 +1,7 @@
 Name				Price 	Spicy 	hot 	calorie Restrictions	Type 	Fruit	
 New York Cheesecake		7.00	Mild	Cold	400	Gluten		cake	N	
 Lemon Cheesecake		7.00	Mild	Cold	350	Gluten		cake	Y	
-Apple Pie			5.00	Mild	Cold	700	Gluten		pie	Y	
+Apple Pie			5.00	Mild	Hot	700	Gluten		pie	Y	
 Chocolate Chiffon Fie		5.00	Mild	Cold	300	Gluten		pie	N	
 Pumpkin Pie			5.00	Mild	Cold	300	Gluten		pie	Y	
 PineApple Pie			5.00	Mild	Cold	300	Gluten		pie	Y	
