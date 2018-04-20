@@ -16,9 +16,9 @@ public class Appetizers extends Food {
     
     public Appetizers( double p, boolean s, boolean h, int c, String r, boolean b, boolean sal, boolean sou){
         super(p,s,g,c,r);
-        this.meat = b;
-        this.veg = sal;
-        this.highcarbs = sou;
+        this.bread = b;
+        this.salad = sal;
+        this.soup = sou;
                 
     }   
     
