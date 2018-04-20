@@ -15,6 +15,6 @@ public class FoodRecommend {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("asdfkadjfda");
+        System.out.println("fds");
     }
 }
