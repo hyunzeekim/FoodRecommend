@@ -1,39 +1,21 @@
-!Pastrmajlija@		10 false true 600 Pork true false false
-!Sirloin Steak@ 	15 false true 420 none true false false 
-!Feoijoda@ 		10 false true 380 none false true false
-!Chilli Chicken@ 	8  true  true 310 none true false false
-!Sandwich@ 		5  false false 420 none true false false
-!Gluten Free Sandwich@  8  false false 400 gluten false false true
-!Spaghetti@ 		10 false true 650 none false false true
-!Sushi Meal@ 		20 false false 900 none true false false
-!Quinoa Sushi Meal@ 	15 false false 700 none false false true
-!Eggs Benedict@ 	10 false true 450 none false true false
-!Veggie Burger@ 	8  false true 280 gluten false true false
-!6 0z Beef Burger@	10 false true 300 none true false false
-!Spicy Fried Rice@ 	15 true true 200 none false false true
-!Pulled Pork Poutine@   15 true true 850 Pork true false false
-!Spicy Cold Noodles@  	10 true false 150 none false false true
-!Lobster Thermidor@     30 true false 500 none true false false
-!Caviar with Egg@ 	40 false false 300 none false true false
-!Chicken Shwarama@ 	15 true true 450 none true false false
-!Szechwan Shrimps@	20 true false 400 none true false false
-!Grilled Spicy Halibut@	15 true treu 230 none true false false
-
-
-
-
-
-
-
-
-
-
-
-
-
-Food:(int price, boolean spice, boolean hot, int calorie, String restrictions)
-Appetizers(boolean bread,  boolean salad, boolean soup):
-	
-Entree(boolean meat, boolean veg, boolean high carbs):
-	
-Desserts (boolean beverage, boolean fruit, boolean cake)
+Name			Price	Spicy	Hot	Calories	Restrictions	Meat	Seafood	Noodles
+Pastrmajlija		17.00 	Mild	Hot	600 		Meat		Y	N	N
+Sirloin Steak	 	22.00 	Mild	Hot	550		Meat		Y	N 	N 
+Chilli Chicken	 	15.00  	Spicy 	Hot	310		Meat		Y	N	N
+Pulled Pork		15.50 	Spicy 	Hot 	550 		Meat		Y 	N 	N
+Beef Brisket		18.25	Mild	Hot	400		Meat		Y	N	N
+Chicken Rice		12.00	Mild	Cold	400		Meat		Y	N	N
+Lamb Stew		15.75	Mild	Hot	300		Meat		Y	N	N
+Chicken Fingers		9.00	Mild	Hot	500		Meat		Y	N	N
+Spicy Sausage Platter	12.00	Spicy	Cold	450		Meat		Y	N	N
+Spaghetti	 	12.50 	Mild 	Hot 	400 		Gluten 		N 	N 	Y
+Gluten-Free Noodles 	16.00 	Mild 	Hot 	350 		None 		N 	N 	Y
+Spicy Chinese Noodles	9.50	Spicy	Cold	400		Gluten		N	N	Y
+Chinese Noodles		9.00	Mild	Cold	350		Gluten		N	N	Y
+Carbonara		12.75	Mild	Hot	500		Gluten		N	N	Y
+Spicy Thai Noodles	13.50	Spicy	Hot	550		Gluten		N	N	Y
+Dynamite Rolls 		15.00 	Mild 	Cold 	400 		None 		N 	Y 	N
+Quinoa Sushi Meal 	17.00	Mild 	Cold 	600 		None 		N 	Y 	N
+Pad Thai		12.00	Spicy	Hot	450		None		N 	Y	N
+Jumbo Fried Shrimps	17.50	Mild	Hot	500		Meat		N	Y	N
+Spicy Fried Squid	16.50	Spicy	Cold	550		Meat		N	Y	N
