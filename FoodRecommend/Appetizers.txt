@@ -19,5 +19,3 @@ Chilli		6.50	Spicy	Hot	350		None		N	N 	Y
 Onion Soup	5.00	Spicy	Hot	300		Gluten		N	N	Y
 Veggie Soup	4.00	Mild	Hot	150		None		N	N	Y
 Mushroom Soup	5.00	Mild	Hot	400		None		N	N 	Y
-
-	
