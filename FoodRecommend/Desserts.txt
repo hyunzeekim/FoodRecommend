@@ -1,21 +1,21 @@
-Name				Price 	Spicy 	hot 	calorie Restrictions	Type 	Fruit	
-New York Cheesecake		7.00	Mild	Cold	400	Gluten		cake	N	
-Lemon Cheesecake		7.00	Mild	Cold	350	Gluten		cake	Y	
-Apple Pie			5.00	Mild	Hot	700	Gluten		pie	Y	
-Chocolate Chiffon Fie		5.00	Mild	Cold	300	Gluten		pie	N	
-Pumpkin Pie			5.00	Mild	Cold	300	Gluten		pie	Y	
-PineApple Pie			5.00	Mild	Cold	300	Gluten		pie	Y	
-Chocolate Mousse		6.00	Mild	Cold	300	None		other	N	
-Lemon Mousse			6.00	Mild	Cold	250	None		other	Y	
-Dark Chocolate Brownie		4.00	Mild	Cold	300	Gluten		other	N	
-Vanilla Ice Cream		3.00	Mild	Cold	250	None		icecream N	
-Chocolate Ice Cream		5.00	Mild	Cold	300	None		icecream N	
-Fried Ice Cream			8.00	Mild	Cold	300	None		icecream N	
-Chocolate Chip Cookie Sundae 	6.00	Mild	Cold	700	None		icecream N	
-Banana Smoothie			5.50	Mild	Cold	200	None		beverage Y	
-Chocolate Smoothie		5.50	Mild	Cold	350	None		beverage Y	
-Blueberry Smoothie		5.50	Mild	Cold	200	None		beverage Y	
-Red velvet cupcake		4.00	Mild	Cold	300	None		cake	N	
-Chocolate cupcake		4.00	Mild	Cold	300	None		cake	N	
-Chocolate Covered Strawberries 	7.00	Mild	Cold	250	None		other	Y	
-Caramel Apple S'mores		10.00	Mild	Cold	300	Gluten		other	Y	
+Name				                  Price 	Spicy 	Hot 	Calories	Restrictions	Beverage	Fruits	Other
+Chocolate Chip Cookie Sundae 	5.00	  Mild	  Cold	700		    None		      Y		      N	      N
+Red Wine			                10.00	  Mild	  Cold	300		    None		      Y		      N	      N	
+Banana Smoothie			          5.00	  Mild	  Cold	300		    None		      Y		      N	      N	
+Hot Chocolate			            3.50	  Mild	  Hot	  400		    None		      Y		      N	      N
+Mocha Latte			              3.00	  Mild	  Hot	  300		    None		      Y		      N	      N
+Chocolate Strawberries        7.00	  Mild	  Cold	250		    None		      N		      Y	      N
+Orange Slices			            4.00	  Mild	  Cold	140		    None		      N		      Y	      N
+Watermelon Slices		          5.00	  Mild	  Cold	100		    None		      N		      Y	      N
+Caramel Apple			            2.30	  Mild	  Cold	400		    None		      N		      Y	      N	
+Fruit Platter			            10.00	  Mild	  Cold	300		    None		      N		      Y	      N
+Spiced Nuts Trail Mix		      4.50	  Spicy	  Cold	200		    Peanuts		    N		      N	      Y
+Trail Mix			                4.25	  Mild	  Cold	200		    Peanuts		    N		      N	      Y
+New York Cheesecake		        7.00	  Mild	  Cold	500		    Gluten		    N		      N	      Y	
+Lemon Bar			                3.00	  Mild	  Cold	400		    Gluten		    N		      N	      Y
+Apple Pie			                7.00	  Mild	  Hot	  700		    Gluten		    N		      N	      Y	
+Chocolate Mousse		          6.00	  Mild	  Cold	500		    None		      N		      N	      Y	
+Ice Cream			                4.00	  Mild	  Cold	550		    None		      N		      N	      Y
+Fudge bar			                3.50	  Mild	  Hot	  400		    None		      N		      N	      Y
+Pumpkin Pie			              10.00	  Mild	  Hot	  400		    Gluten		    N		      N	      Y
+Lemon Mousse			            3.00	  Mild	  Cold	250		    None		      N		      N	      Y		
