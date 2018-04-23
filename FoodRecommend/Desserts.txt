@@ -18,8 +18,4 @@ Chocolate Mousse	6.00	Mild	Cold	500		None		N		N	Y
 Ice Cream		4.00	Mild	Cold	550		None		N		N	Y
 Fudge bar		3.50	Mild	Hot	400		None		N		N	Y
 Pumpkin Pie		10.00	Mild	Hot	400		Gluten		N		N	Y
-<<<<<<< HEAD
-Lemon Mousse		3.00	Mild	Cold	250		None		N		N	Y		
-=======
-Lemon Mousse		3.00	Mild	Cold	250		None		N		N	Y
->>>>>>> 507cacc1713c5d5c2bb302449d3c487698660f00
+Lemon Mousse		3.00	Mild	Cold	250		None		N		N	Y	
