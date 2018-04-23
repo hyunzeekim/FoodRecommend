@@ -33,9 +33,12 @@ public class Entree extends Food {
         
         if(other.highcarbs == true && this.highcarbs == true){
         }
-        
+    }
+    
+    public int checkRating(){
         
     }
+    
     
     
     
