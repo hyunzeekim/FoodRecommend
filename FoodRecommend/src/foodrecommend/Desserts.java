@@ -22,7 +22,18 @@ public class Desserts extends Food {
                 
     }   
     
-    public void checkFood(){
+    public Food checkFood(Food other){
+        super.checkFood;
+        
+        if(other.beverage == true && this.beverage == true){
+        }
+        
+        if(other.fruit == true && this.fruit == true){
+        }
+        
+        if(other.cake == true && this.cake == true){
+        }
+        
         
     }
     
