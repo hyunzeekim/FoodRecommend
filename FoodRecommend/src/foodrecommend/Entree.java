@@ -10,15 +10,15 @@ package foodrecommend;
  */
 public class Entree extends Food {
     boolean meat;
-    boolean veg;
-    boolean highcarbs;
+    boolean seafood;
+    boolean noodles;
    
     
-    public Entree( double p, boolean s, boolean h, int c, String r, boolean m, boolean v, boolean h){
+    public Entree( double p, boolean s, boolean h, int c, String r, boolean m, boolean s, boolean n){
         super(p,s,g,c,r);
         this.meat = m;
-        this.veg = v;
-        this.highcarbs = h;
+        this.seafood = s;
+        this.noodles = n;
                 
     }   
     
@@ -28,10 +28,10 @@ public class Entree extends Food {
         if(other.meat == true && this.meat == true){
         }
         
-        if(other.veg == true && this.veg == true){
+        if(other.seafood == true && this.veg == true){
         }
         
-        if(other.highcarbs == true && this.highcarbs == true){
+        if(other.noodles == true && this.highcarbs == true){
         }
     }
     
