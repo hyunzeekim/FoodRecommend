@@ -146,10 +146,10 @@ public class FoodRecommend {
             currentInput = s.nextLine();
         }
         
-        if(currentInput=="salad"){
+        if(currentInput.equalsIgnoreCase("salad")){
             salad = true;
         }
-        else if(currentInput=="bread"){
+        else if(currentInput.equalsIgnoreCase("bread")){
             bread = true;
         }
         else{
@@ -171,10 +171,10 @@ public class FoodRecommend {
             currentInput = s.nextLine();
         }
         
-        if(currentInput=="meat"){
+        if(currentInput.equalsIgnoreCase("meat")){
             meat = true;
         }
-        else if(currentInput=="seafood"){
+        else if(currentInput.equalsIgnoreCase("seafood")){
             seafood = true;
         }
         else{
@@ -196,10 +196,10 @@ public class FoodRecommend {
             currentInput = s.nextLine();
         }
         
-        if(currentInput=="beverage"){
+        if(currentInput.equalsIgnoreCase("beverage")){
             beverage = true;
         }
-        else if(currentInput=="fruit"){
+        else if(currentInput.equalsIgnoreCase("fruit")){
             fruit = true;
         }
         else{
@@ -237,4 +237,5 @@ public class FoodRecommend {
             FinalRecommend[n].printItsInformation();
         }
     }
+    //e
 }
