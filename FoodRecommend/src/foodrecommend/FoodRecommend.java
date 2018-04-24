@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package foodrecommend;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
 /**
@@ -19,8 +16,8 @@ public class FoodRecommend {
      */
             
     double price;
-    boolean spice;
-    boolean hot;
+    String spice;
+    String hot;
     int calorie;
     String restrictions;
     
@@ -44,7 +41,7 @@ public class FoodRecommend {
     public static void main(String[] args) { 
         FoodRecommend f1 = new FoodRecommend();
         f1.askForType();
-        f1.Output();
+        f1.printInfo();
     }
 //The constructor that takes in the input from the user to create a FoodRecommend object
     public FoodRecommend(){
@@ -53,35 +50,37 @@ public class FoodRecommend {
         String currentInput;
         System.out.println("Please type in Spicy/Mild for the following question:");
 
-        System.out.println("Would you prefer spicy or not?");
+        System.out.println("Would you prefer spicy or mild?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
             System.out.println("Please enter again would you prefer spicy or not?");
             currentInput = s.nextLine();
         }
-        spice = ToBoolean(currentInput);
+        spice = currentInput;
         
         
-        System.out.println("Would you prefer Hot/Cold food or not?");
+        System.out.println("Would you prefer Hot or Cold food");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
-            System.out.println("Pealse enter again would you prefer hot/warm food or not?");
+            System.out.println("Please enter again would you prefer Hot or Cold food?");
             currentInput = s.nextLine();
         }
-        hot = ToBoolean(currentInput);
+        hot = currentInput;
         
         
         System.out.println("Please type in the price that you would like to pay in this format: 10.00");
         price = s.nextDouble();
+        
+        
         System.out.println("Please type in the calories that you would like the food to be: Eg: 1300");
         calorie = s.nextInt();
         
         System.out.println("Please type the following if you have these restrictions(Meat, Peanut, Gluten):");
         currentInput = s.nextLine();
+        
         while((currentInput.equalsIgnoreCase("meat")||
                 currentInput.equalsIgnoreCase("peanut")||currentInput.equalsIgnoreCase("gluten"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you do not want it:"
-                    + "(meat, peanut, gluten)");
+            System.out.println("Incorrect format. Please retype your restrictions(Meat, Peanut, Gluten)");
             currentInput = s.nextLine();
         }     
         restrictions = currentInput;   
@@ -141,7 +140,7 @@ public class FoodRecommend {
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("Salad")||currentInput.equalsIgnoreCase("Bread")||
                 currentInput.equalsIgnoreCase("Soup"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you do not want it:"
+            System.out.println("Incorrect format. Please retype:"
                     + "salad/bread/soup");
             currentInput = s.nextLine();
         }
@@ -166,33 +165,33 @@ public class FoodRecommend {
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
                 currentInput.equalsIgnoreCase("noudles"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you do not want it:"
+            System.out.println("Incorrect format. Please retype:"
                     + "meat/seafood/noodles");
             currentInput = s.nextLine();
         }
         
-        if(currentInput=="meat"){
+        if(currentInput.equals("meat")){
             meat = true;
         }
-        else if(currentInput=="seafood"){
+        else if(currentInput.equals("seafood")){
             seafood = true;
         }
         else{
             noodles = true;
         }
     }
+    
     public void DessertInput(){
         String currentInput;
         Scanner s = new Scanner(System.in);
         
         System.out.println("You have selected Desserts, please type in one of the following:");
-        System.out.println("beverage/fruit/other");
+        System.out.println("Beverage/Fruit/Other");
 
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("beverage")||currentInput.equalsIgnoreCase("fruit")||
                 currentInput.equalsIgnoreCase("other"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you do not want it:"
-                    + "beverage/fruit/other");
+            System.out.println("Incorrect format. Please retype: beverage/fruit/other");
             currentInput = s.nextLine();
         }
         
@@ -224,17 +223,17 @@ public class FoodRecommend {
         else return false;
     }
     
-//The checkFood function calls the checkFood function from the subclasses to get the eventual output.
-    public void checkFood(){
+//The recommendFood function calls the recommendFood function from the subclasses to get the eventual output.
+    public void recommendFood(){
         if (wantAppetizer == true){
-            FinalRecommend[0] = Appetizers.checkfood();
+            FinalRecommend[0] = Appetizers.recommendFood();
         }
         //etc I don't know how exactly the subclasses return the final answer.
         return 
     }
     
 //Actually printing the output to the screen.
-    public void Output(){
+    public void printInfo(){
         for(int n = 0; n< FinalRecommend.length; n++){
             FinalRecommend[n].printItsInformation();
         }
