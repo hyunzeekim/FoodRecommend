@@ -10,10 +10,12 @@ import java.io.IOException;
 /**
  *
  * @author hyunzeekim
+ 
  */
 public class Entree extends Food {
     Food[] options;
     double[] ratings;
+    Food[] finalOptions;
    
     
      public Entree(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
@@ -22,7 +24,6 @@ public class Entree extends Food {
     
     
     public Food[] checkFood(FileReader f) throws IOException {
-
         int index = 0;
         
         for(int i = 0; i < super.checkFood(f).length; i++){
@@ -41,21 +42,34 @@ public class Entree extends Food {
             ratings[i] = super.calculateRating(options[i]);
         }
         
+        int[] x = getTwo(ratings)
         
+        for (int i = 0; i < x.length; i++){
+            finalOptions[x[i]] = options[x[i]];         
+        }
         
-        return options;
-     
+        return finalOptions;
     }
     
-    public double findTwoMax(double[] a){
-            double max = a[0];
-            for(int b = 1; b < a.length; b++){
-                if(a[b] > max){
-                    max = a[b];
+    public static int[] getTwo(double[] array){
+      int index1 = 0;
+      int index2 = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] > max)
+            {
+                index2 = index1
+                index1 = i;    
+            }
+            else if (array[i] > secondMax && array[i] < max)
+            {
+                index2 = i;
             }
         }
-        return max;
-        }
+    return new int[] { index1, index2 };
+    }
+    
+
     
     
     
