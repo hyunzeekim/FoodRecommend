@@ -44,7 +44,6 @@ public class FoodRecommend {
     public static void main(String[] args) { 
         FoodRecommend f1 = new FoodRecommend();
         f1.askForType();
-        f1.checkFood();
         f1.Output();
     }
 //The constructor that takes in the input from the user to create a FoodRecommend object
