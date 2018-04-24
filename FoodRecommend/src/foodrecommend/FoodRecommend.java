@@ -52,7 +52,7 @@ public class FoodRecommend {
 
         Scanner s = new Scanner(System.in);
         String currentInput;
-        System.out.println("Please type in Spicy/Cold for the following question:");
+        System.out.println("Please type in Spicy/Mild for the following question:");
 
         System.out.println("Would you prefer spicy or not?");
         currentInput = s.nextLine();
