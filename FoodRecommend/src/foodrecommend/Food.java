@@ -178,8 +178,8 @@ public class Food {
         String percentage = calculateRating(f);
         
         System.out.println("Your recommended meal is:");
-        System.out.println(name + " " + price + " " + spicy + " "  + hot + " " + 
-                calorie + " " + restrictions);
+        System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
+                calorie +  "\t" + restrictions);
         System.out.println(percentage);
     }
     
