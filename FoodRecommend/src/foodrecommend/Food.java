@@ -191,7 +191,7 @@ public class Food {
         System.out.println("Your second choice recommended meal is:");
         System.out.println("");
         System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingrediants");        
+                "Calories" +  "\t" + "Any Used Restricted Ingredients");        
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
                 calorie +  "\t" + restrictions);
         System.out.println(percentage1);        
