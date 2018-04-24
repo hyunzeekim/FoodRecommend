@@ -52,18 +52,18 @@ public class FoodRecommend {
 
         Scanner s = new Scanner(System.in);
         String currentInput;
-        System.out.println("Please type in y/n for the following question:");
+        System.out.println("Please type in Spicy/Cold for the following question:");
 
         System.out.println("Would you prefer spicy or not?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
-            System.out.println("Pealse enter again would you prefer spicy or not?");
+            System.out.println("Please enter again would you prefer spicy or not?");
             currentInput = s.nextLine();
         }
         spice = ToBoolean(currentInput);
         
         
-        System.out.println("Would you prefer hot/warm food or not?");
+        System.out.println("Would you prefer Hot/Cold food or not?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
             System.out.println("Pealse enter again would you prefer hot/warm food or not?");
@@ -77,12 +77,12 @@ public class FoodRecommend {
         System.out.println("Please type in the calories that you would like the food to be: Eg: 1300");
         calorie = s.nextInt();
         
-        System.out.println("Please retype the following if you does not want it:(meat, pork, peanut, gluten)");
+        System.out.println("Please type the following if you have these restrictions(Meat, Peanut, Gluten):");
         currentInput = s.nextLine();
-        while((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("pork")||
+        while((currentInput.equalsIgnoreCase("meat")||
                 currentInput.equalsIgnoreCase("peanut")||currentInput.equalsIgnoreCase("gluten"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you does not want it:"
-                    + "(meat, pork, peanut, gluten)");
+            System.out.println("Incorrect format. Please retype the following if you do not want it:"
+                    + "(meat, peanut, gluten)");
             currentInput = s.nextLine();
         }     
         restrictions = currentInput;   
@@ -97,9 +97,10 @@ public class FoodRecommend {
         currentInput = s.nextLine();
         
         while (CheckInput(currentInput) != true){
-            System.out.println("Pealse enter again would you like appetizer?");
+            System.out.println("Please enter again- would you like appetizer?");
             currentInput = s.nextLine();
         }
+        
         wantAppetizer = ToBoolean(currentInput);
         if(wantAppetizer==true){
             AppetizersInput();
@@ -108,7 +109,7 @@ public class FoodRecommend {
         System.out.println("Would you like entrees?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
-            System.out.println("Pealse enter again would you like entrees?");
+            System.out.println("Please enter again- would you like entrees?");
             currentInput = s.nextLine(); 
         }
         wantEntree = ToBoolean(currentInput);
@@ -119,7 +120,7 @@ public class FoodRecommend {
         System.out.println("Would you like desserts?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
-            System.out.println("Pealse enter again would you like desserts?");
+            System.out.println("Please enter again- would you like desserts?");
             currentInput = s.nextLine();
             
         }
@@ -136,12 +137,12 @@ public class FoodRecommend {
         Scanner s = new Scanner(System.in);
         
         System.out.println("You have selected Appetizers, please type in one of the following:");
-        System.out.println("salad/bread/soup");
+        System.out.println("Salad/Bread/Soup");
 
         currentInput = s.nextLine();
-        while((currentInput.equalsIgnoreCase("salad")||currentInput.equalsIgnoreCase("bread")||
-                currentInput.equalsIgnoreCase("soup"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you does not want it:"
+        while((currentInput.equalsIgnoreCase("Salad")||currentInput.equalsIgnoreCase("Bread")||
+                currentInput.equalsIgnoreCase("Soup"))!= true){
+            System.out.println("Incorrect format. Please retype the following if you do not want it:"
                     + "salad/bread/soup");
             currentInput = s.nextLine();
         }
@@ -161,12 +162,12 @@ public class FoodRecommend {
         Scanner s = new Scanner(System.in);
         
         System.out.println("You have selected Entree, please type in one of the following:");
-        System.out.println("meat/seafood/noodles");
+        System.out.println("Meat/Seafood/Noodles");
 
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
                 currentInput.equalsIgnoreCase("noudles"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you does not want it:"
+            System.out.println("Incorrect format. Please retype the following if you do not want it:"
                     + "meat/seafood/noodles");
             currentInput = s.nextLine();
         }
@@ -191,17 +192,19 @@ public class FoodRecommend {
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("beverage")||currentInput.equalsIgnoreCase("fruit")||
                 currentInput.equalsIgnoreCase("other"))!= true){
-            System.out.println("Incorrect format. Please retype the following if you does not want it:"
+            System.out.println("Incorrect format. Please retype the following if you do not want it:"
                     + "beverage/fruit/other");
             currentInput = s.nextLine();
         }
         
-        if(currentInput=="beverage"){
+        if(currentInput.equals("beverage")){
             beverage = true;
         }
-        else if(currentInput=="fruit"){
+        
+        else if(currentInput.equals("fruit")){
             fruit = true;
         }
+        
         else{
             dessertother = true;
         }
@@ -210,13 +213,13 @@ public class FoodRecommend {
 //the ToBoolean function and the CheckIInput function is 
 //just what I wrote in order to simplify the input code, there if no need for you guys to look at these fuctions.  
     public static boolean ToBoolean(String decision){
-        if(decision.equalsIgnoreCase("y")){
+        if(decision.equalsIgnoreCase("Y")){
             return true;
         }
         else return false;
     }
     public static boolean CheckInput(String decision){
-        if (decision.equalsIgnoreCase("y")||decision.equalsIgnoreCase("n")){
+        if (decision.equalsIgnoreCase("Y")||decision.equalsIgnoreCase("N")){
             return true;
         }
         else return false;
