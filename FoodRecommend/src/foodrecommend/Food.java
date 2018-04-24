@@ -159,7 +159,7 @@ public class Food {
         //Accuracy percentage of meal
         double score = rating/10*100;
         
-        return "The recommended meal is " + score + "% correct!";
+        return "The recommended meal is " + score + "% accurate to your preferences!";
     }
     
     //GET MAX VALUE - used in the CheckFood() Method
@@ -174,13 +174,27 @@ public class Food {
     }
     
     //PRINT INFO
-    public void printFood(Food f){
-        String percentage = calculateRating(f);
+    public void printFood(Food f, Food ff){
+        String percentage1 = calculateRating(f);
+        String percentage2 = calculateRating(ff);
         
-        System.out.println("Your recommended meal is:");
-        System.out.println(name + " " + price + " " + spicy + " "  + hot + " " + 
-                calorie + " " + restrictions);
-        System.out.println(percentage);
+        System.out.println("Your first choice recommended meal is:");
+        System.out.println("");
+        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
+                "Calories" +  "\t" + "Any Used Restricted Ingrediants");        
+        System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
+                calorie +  "\t" + restrictions);
+        System.out.println(percentage1);
+        
+        System.out.println("");
+        
+        System.out.println("Your second choice recommended meal is:");
+        System.out.println("");
+        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
+                "Calories" +  "\t" + "Any Used Restricted Ingredients");        
+        System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
+                calorie +  "\t" + restrictions);
+        System.out.println(percentage1);        
     }
     
     FoodRecommend fr = new FoodRecommend();

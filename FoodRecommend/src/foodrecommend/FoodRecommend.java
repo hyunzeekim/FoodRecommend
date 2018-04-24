@@ -165,7 +165,7 @@ public class FoodRecommend {
 
         currentInput = s.nextLine();
         while((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
-                currentInput.equalsIgnoreCase("noudles"))!= true){
+                currentInput.equalsIgnoreCase("noodles"))!= true){
             System.out.println("Incorrect format. Please retype:"
                     + "meat/seafood/noodles");
             currentInput = s.nextLine();
