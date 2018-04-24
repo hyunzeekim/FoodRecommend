@@ -64,7 +64,6 @@ public class Food {
         int calorieInput = fr.calorie;
         String restricInput = fr.restrictions;
         
-        //Save menu titles into variables
         for(int i = 0 ; i < 20; i++){
             
             //Restrictions is priority- check restriction first
