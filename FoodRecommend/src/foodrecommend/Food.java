@@ -20,7 +20,8 @@ public class Food {
     String condition1;
     String condition2;
     String condition3;
-    
+    double rating;
+    String[] input;
     FileReader myFiles;
     
     //FOOD CONSTRUCTOR
@@ -34,6 +35,18 @@ public class Food {
         condition1 = c1;
         condition2 = c2;
         condition3 = c3;
+    }
+    
+    //GET INPUTS
+    public String[] inputs(){
+        //Get inputs from user using the FoodRecommend Class
+        input[0] = Double.toString(fr.price);
+        input[1] = fr.spice;
+        input[2] = fr.hot;
+        input[3] = Integer.toString(fr.calorie);
+        input[4] = fr.restrictions;
+        
+        return input;
     }
     
     //CHECK RESTRICTIONS - called in subclasses
@@ -57,34 +70,27 @@ public class Food {
             }
         }
         
-        //Get inputs from user using the FoodRecommend Class
-        double priceInput = fr.price;
-        String spicyInput = fr.spice;
-        String hotInput = fr.hot;
-        int calorieInput = fr.calorie;
-        String restricInput = fr.restrictions;
-        
         for(int i = 0 ; i < 20; i++){
             
             //Restrictions is priority- check restriction first
-            if(menu[i][5].equals(restricInput)){
+            if(menu[i][5].equals(input[4])){
                 
                 //Then check price
-                if(priceInput-3 < Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) < priceInput+3){
+                if(Double.parseDouble(input[0])-3 < Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) < Double.parseDouble(input[0])+3){
                     
                     //Add the food that fits restriction and price range into an array Recommend1
                     recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], Integer.parseInt(menu[i][3]), menu[i][4], menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
                     
                     //Add an accuracy point each time the user's input for the following options is the same as the food's
-                    if(recommend1[i].spicy.equals(spicyInput)){
+                    if(recommend1[i].spicy.equals(input[1])){
                         accuracy[i]++;
                     }            
 
-                    if(recommend1[i].hot.equals(hotInput)){
+                    if(recommend1[i].hot.equals(input[2])){
                         accuracy[i]++;
                     }            
 
-                    if(calorieInput-100 < recommend1[i].calorie && recommend1[i].calorie > calorieInput+100){
+                    if(Integer.parseInt(input[3])-100 < recommend1[i].calorie && recommend1[i].calorie > Integer.parseInt(input[3])+100){
                         accuracy[i]++;
                     }
                 }
@@ -98,7 +104,7 @@ public class Food {
             if(getMax(accuracy) == 3){
                 if(accuracy[z] == 3){
                     recommendMeal[count] = recommend1[z];
-                    count++;
+                    count+=2;
                     
                 }
             }
@@ -106,7 +112,7 @@ public class Food {
             else if(getMax(accuracy) == 2){
                 if(accuracy[z] == 2){
                     recommendMeal[count] = recommend1[z];
-                    count++;
+                    count+=2;
                 }
             }
             
@@ -114,7 +120,7 @@ public class Food {
             else if(getMax(accuracy) == 1){
                 if(accuracy[z] == 1){
                     recommendMeal[count] = recommend1[z];
-                    count++;
+                    count+=2;
                 }
             }
  
@@ -128,12 +134,32 @@ public class Food {
         return recommendMeal;
     }
     
-    //CALCULATE RATING OF THE OUTPUT
-    public double calculateRating(Food f){
-        double rating;
-        rating = 0;
+    //CALCULATE PERCENTAGE ACCURACY OF THE OUTPUT COMPARED TO USER'S INPUTS
+    public String calculateRating(Food f){
+        if(Double.parseDouble(input[0]) == price){
+            rating+=2;
+        }
         
-        return rating;
+        if(restrictions.equals(input[4])){
+            rating+=2;
+        }
+        
+        if(spicy.equals(input[2])){
+            rating+=2;
+        }
+        
+        if(hot.equals(input[3])){
+            rating+=2;
+        }        
+        
+        if(Integer.parseInt(input[3]) == calorie){
+            rating+=2;
+        }
+        
+        //Accuracy percentage of meal
+        double score = rating/10*100;
+        
+        return "The recommended meal is " + score + "% correct!";
     }
     
     //GET MAX VALUE - used in the CheckFood() Method
@@ -149,10 +175,12 @@ public class Food {
     
     //PRINT INFO
     public void printFood(Food f){
-        double percentage = calculateRating(f);
+        String percentage = calculateRating(f);
         
+        System.out.println("Your recommended meal is:");
         System.out.println(name + " " + price + " " + spicy + " "  + hot + " " + 
-                calorie + " " + restrictions + " " + percentage);
+                calorie + " " + restrictions);
+        System.out.println(percentage);
     }
     
     FoodRecommend fr = new FoodRecommend();
