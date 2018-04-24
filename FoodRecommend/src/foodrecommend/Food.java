@@ -134,7 +134,7 @@ public class Food {
         return recommendMeal;
     }
     
-    //CALCULATE RATING OF THE OUTPUT
+    //CALCULATE PERCENTAGE ACCURACY OF THE OUTPUT COMPARED TO USER'S INPUTS
     public String calculateRating(Food f){
         if(Double.parseDouble(input[0]) == price){
             rating+=2;
