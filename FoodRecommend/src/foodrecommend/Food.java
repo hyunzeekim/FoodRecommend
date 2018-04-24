@@ -59,8 +59,8 @@ public class Food {
         
         //Get inputs from user using the FoodRecommend Class
         double priceInput = fr.price;
-        String spicyInput = Boolean.toString(fr.spice);
-        String hotInput = Boolean.toString(fr.hot);
+        String spicyInput = fr.spice;
+        String hotInput = fr.hot;
         int calorieInput = fr.calorie;
         String restricInput = fr.restrictions;
         
