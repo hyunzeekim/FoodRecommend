@@ -20,6 +20,7 @@ public class Desserts extends Food {
     Food[] options;
     double[] ratings;
     Food[] finalOptions;
+    FoodRecommend fr = new FoodRecommend();
    
     //Same constructor made for this
      public Desserts(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
