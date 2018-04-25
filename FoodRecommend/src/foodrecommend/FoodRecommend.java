@@ -51,7 +51,7 @@ public class FoodRecommend {
         String currentInput;
         System.out.println("Please type in Spicy/Mild for the following question:");
 
-        System.out.println("Would you prefer spicy or mild?");
+        System.out.println("Would you prefer spicy?");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
             System.out.println("Please enter again would you prefer spicy or not?");
@@ -60,10 +60,10 @@ public class FoodRecommend {
         spice = currentInput;
         
         
-        System.out.println("Would you prefer Hot or Cold food");
+        System.out.println("Would you prefer hot/warm food");
         currentInput = s.nextLine();
         while (CheckInput(currentInput) != true){
-            System.out.println("Please enter again would you prefer Hot or Cold food?");
+            System.out.println("Please enter again would you prefer hot/warm food?");
             currentInput = s.nextLine();
         }
         hot = currentInput;
@@ -175,16 +175,12 @@ public class FoodRecommend {
             meat = true;
         }
         else if(currentInput.equalsIgnoreCase("seafood")){
-        if(currentInput.equals("meat")){
-            meat = true;
-        }
-        else if(currentInput.equals("seafood")){
+ 
             seafood = true;
         }
         else{
             noodles = true;
         }
-    }
     } 
  public void DessertInput(){
         String currentInput;
@@ -203,11 +199,6 @@ public class FoodRecommend {
         if(currentInput.equalsIgnoreCase("beverage")){
             beverage = true;
         }
-        else if(currentInput.equalsIgnoreCase("fruit")){
-        if(currentInput.equals("beverage")){
-            beverage = true;
-        }
-        
         else if(currentInput.equals("fruit")){
             fruit = true;
         }
@@ -215,7 +206,7 @@ public class FoodRecommend {
         else{
             dessertother = true;
         }
-    }
+    
  }
     
     public static boolean ToBoolean(String decision){
