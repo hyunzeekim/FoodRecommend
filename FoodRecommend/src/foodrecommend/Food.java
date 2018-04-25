@@ -174,6 +174,7 @@ public class Food {
         double percentage1 = calculateRating(f);
         double percentage2 = calculateRating(ff);
         
+        //Print first choice meal
         System.out.println("Your first choice recommended meal is:");
         System.out.println("");
         System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
@@ -184,6 +185,7 @@ public class Food {
         
         System.out.println("");
         
+        //Print second meal choice
         System.out.println("Your second choice recommended meal is:");
         System.out.println("");
         System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
