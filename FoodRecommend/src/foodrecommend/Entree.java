@@ -44,13 +44,13 @@ public class Entree extends Food {
         for (int i = 0; i < options.length; i++){
             ratings[i] = super.calculateRating(options[i]);
             
-            if (options[i].condition1.equals("Y") && fr.bread == true){
+            if (options[i].condition1.equals("Y") && fr.meat == true){
                 ratings[i]++;
             }
-            if (options[i].condition2.equals("Y") && fr.bread == true){
+            if (options[i].condition2.equals("Y") && fr.seafood == true){
                 ratings[i]++;
             }
-            if (options[i].condition3.equals("Y") && fr.bread == true){
+            if (options[i].condition3.equals("Y") && fr.noodles == true){
                 ratings[i]++;
             }
             
