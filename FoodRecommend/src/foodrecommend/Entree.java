@@ -45,7 +45,7 @@ public class Entree extends Food {
         }
         
         //Used to find highest ratings, and returns an array of index values
-        int[] x = getTwo(ratings)
+        int[] x = getTwo(ratings);
         
         //Uses index values to create a new Food array with the two best options
         for (int i = 0; i < x.length; i++){
@@ -60,12 +60,12 @@ public class Entree extends Food {
       int index2 = 0;
         for (int i = 0; i < array.length; i++)
         {
-            if (array[i] > max)
+            if (array[i] > index1)
             {
-                index2 = index1
+                index2 = index1;
                 index1 = i;    
             }
-            else if (array[i] > secondMax && array[i] < max)
+            else if (array[i] > index2 && array[i] < index1)
             {
                 index2 = i;
             }
@@ -73,7 +73,13 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
-
+    public void printFood(Food f){
+        double percentage = calculateRating(f);
+        
+        System.out.println(name + " " + price + " " + spicy + " "  + hot + " " + 
+                calorie + " " + restrictions + " " + condition1 + " " + condition2 + " " 
+                + condition3 + percentage);
+    }
     
     
     
