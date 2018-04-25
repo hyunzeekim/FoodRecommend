@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Name			Price	Spicy	Hot	Calories	Restrictions	Meat	Seafood	Noodles
 Pastrmajlija		17.00 	Mild	Cold	600 		Meat		Y	N	N
 Sirloin Steak	 	22.00 	Mild	Hot	550		Meat		Y	N 	N 
@@ -6,7 +5,7 @@ Chilli Chicken	 	15.00  	Spicy 	Hot	310		Meat		Y	N	N
 Pulled Pork		15.50 	Spicy 	Hot 	550 		Meat		Y 	N 	N
 Beef Brisket		18.25	Mild	Hot	400		Meat		Y	N	N
 Chicken Wings		12.00	Mild	Hot	400		Meat		Y	N	N
-Lamb Stew		15.75	Mild	Hot	300		Meat		Y	N	N
+Lamb Stew		14.50	Mild	Hot	300		Meat		Y	N	N
 Chicken Fingers		9.00	Mild	Hot	500		Meat		Y	N	N
 Spicy Sausage Platter	12.00	Spicy	Cold	450		Meat		Y	N	N
 Spaghetti	 	12.50 	Mild 	Hot 	400 		Gluten 		N 	N 	Y
