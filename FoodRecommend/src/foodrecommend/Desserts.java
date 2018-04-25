@@ -47,6 +47,19 @@ public class Desserts extends Food {
         //Recalculates the ratings for the new array of Food
         for (int i = 0; i < options.length; i++){
             ratings[i] = super.calculateRating(options[i]);
+            
+            if (options[i].condition1.equals("Y") && fr.beverage == true){
+                ratings[i]++;
+            }
+            if (options[i].condition2.equals("Y") && fr.fruit == true){
+                ratings[i]++;
+            }
+            if (options[i].condition3.equals("Y") && fr.dessertother == true){
+                ratings[i]++;
+            }
+            
+            ratings[i] = (ratings[i]/13 * 100);
+            
         }
         
         //Used to find highest ratings, and returns an array of index values
