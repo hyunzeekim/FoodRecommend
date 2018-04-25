@@ -74,12 +74,8 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
-    public void printFood(Food f){
-        double percentage = calculateRating(f);
-        
-        System.out.println(name + " " + price + " " + spicy + " "  + hot + " " + 
-                calorie + " " + restrictions + " " + condition1 + " " + condition2 + " " 
-                + condition3 + percentage);
+  public void printFood(Food f, Food ff){
+        super.printFood(f, ff);
     }
     
     
