@@ -83,15 +83,15 @@ public class Food {
                     
                     //Add an accuracy point each time the user's input for the following options is the same as the food's
                     if(recommend1[i].spicy.equals(input[1])){
-                        accuracy[i]++;
+                        accuracy[i]+=2;
                     }            
 
                     if(recommend1[i].hot.equals(input[2])){
-                        accuracy[i]++;
+                        accuracy[i]+=2;
                     }            
 
                     if(Integer.parseInt(input[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(input[3])+100){
-                        accuracy[i]++;
+                        accuracy[i]+=2;
                     }
                 }
             }
@@ -100,23 +100,23 @@ public class Food {
         int count = 0;
         for(int z = 0; z < recommend1.length; z++){
             
-            //If the highest accuracy score is 3, add all Food items with accuracy score 3 into an array recommendMeal
-            if(getMax(accuracy) == 3){
-                if(accuracy[z] == 3){
+            //If the highest accuracy score is 6, add all Food items with accuracy score 6 into an array recommendMeal
+            if(getMax(accuracy) == 6){
+                if(accuracy[z] == 6){
                     recommendMeal[count] = recommend1[z]; 
                 }
             }
             
-             //If the highest accuracy score is 2, add all Food items with accuracy score 2 into an array recommendMeal           
-            else if(getMax(accuracy) == 2){
-                if(accuracy[z] == 2){
+             //If the highest accuracy score is 4, add all Food items with accuracy score 4 into an array recommendMeal           
+            else if(getMax(accuracy) == 4){
+                if(accuracy[z] == 4){
                     recommendMeal[count] = recommend1[z];
                 }
             }
             
-            //If the highest accuracy score is 1, add all Food items with accuracy score 1 into an array recommendMeal            
-            else if(getMax(accuracy) == 1){
-                if(accuracy[z] == 1){
+            //If the highest accuracy score is 2, add all Food items with accuracy score 2 into an array recommendMeal            
+            else if(getMax(accuracy) == 2){
+                if(accuracy[z] == 2){
                     recommendMeal[count] = recommend1[z];
                 }
             }
