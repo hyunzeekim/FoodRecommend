@@ -76,7 +76,7 @@ public class Food {
             if(menu[i][5].equals(input[4])){
                 
                 //Then check price
-                if(Double.parseDouble(input[0])-3 < Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) < Double.parseDouble(input[0])+3){
+                if(Double.parseDouble(input[0])-3 <= Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) <= Double.parseDouble(input[0])+3){
                     
                     //Add the food that fits restriction and price range into an array Recommend1
                     recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], Integer.parseInt(menu[i][3]), menu[i][4], menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
@@ -90,7 +90,7 @@ public class Food {
                         accuracy[i]++;
                     }            
 
-                    if(Integer.parseInt(input[3])-100 < recommend1[i].calorie && recommend1[i].calorie > Integer.parseInt(input[3])+100){
+                    if(Integer.parseInt(input[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(input[3])+100){
                         accuracy[i]++;
                     }
                 }
