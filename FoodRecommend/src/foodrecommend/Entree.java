@@ -87,35 +87,8 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
-  public void printFood(Food[] f){
-        double percentage1 = calculateRating(f[0]);
-        double percentage2 = calculateRating(f[1]);
-        
-        System.out.println("Your first choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingrediants");        
-       System.out.println(f[0].name + "\t " + f[0].price + " \t"
-                + f[0].spicy + "\t "  + f[0].hot + "\t" + 
-                f[0].calorie +  "\t" +  f[0].restrictions + "\t" +
-                f[0].condition1 +  "\t" + f[0].condition2 +  "\t" + 
-               f[0].condition3);
-        
-        System.out.println(percentage1);
-        
-        System.out.println("");
-        
-        System.out.println("Your second choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingredients");        
-       System.out.println(f[1].name + "\t " + f[1].price + " \t"
-                + f[1].spicy + "\t "  + f[1].hot + "\t" + 
-                f[1].calorie +  "\t" +  f[1].restrictions + "\t" +
-                f[1].condition1 +  "\t" + f[1].condition2 +  "\t" + 
-                f[1].condition3);
-       
-        System.out.println(percentage2);        
+  public void printFood(){
+        super.printFood(finalOptions[0], finalOptions[1]);
     }
     
     
