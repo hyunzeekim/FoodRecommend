@@ -176,9 +176,8 @@ public class Food {
         
         //Print first choice meal
         System.out.println("Your first choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingrediants");        
+        System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
+                "CALORIES" +  "\t" + "USED RESTRICTIONS");        
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
                 calorie +  "\t" + restrictions);
         System.out.println("Your meal is " + percentage1 +"% accurate!");
@@ -187,9 +186,8 @@ public class Food {
         
         //Print second meal choice
         System.out.println("Your second choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingredients");        
+        System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
+                "CALORIES" +  "\t" + "USED RESTRICTIONS");       
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
                 calorie +  "\t" + restrictions);
         System.out.println("Your meal is " + percentage2 +"% accurate!");        
