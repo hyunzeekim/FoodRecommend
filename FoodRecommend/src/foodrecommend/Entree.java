@@ -22,7 +22,6 @@ public class Entree extends Food {
         super(n,p,r,c,s,h,c1,c2,c3);             
     }   
     
-    
     @Override
     public Food[] checkFood(FileReader f) throws IOException {
         int index = 0;
@@ -65,7 +64,7 @@ public class Entree extends Food {
         for (int i = 0; i < x.length; i++){
             finalOptions[x[i]] = options[x[i]];         
         }
-        
+     
         return finalOptions;
     }
     
@@ -90,9 +89,5 @@ public class Entree extends Food {
   public void printFood(){
         super.printFood(finalOptions[0], finalOptions[1]);
     }
-    
-    
-    
-    
-    
+ 
 }
