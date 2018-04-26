@@ -76,22 +76,22 @@ public class Food {
             if(menu[i][5].equals(input[4])){
                 
                 //Then check price
-                if(Double.parseDouble(input[0])-3 < Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) < Double.parseDouble(input[0])+3){
+                if(Double.parseDouble(input[0])-3 <= Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) <= Double.parseDouble(input[0])+3){
                     
                     //Add the food that fits restriction and price range into an array Recommend1
                     recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], Integer.parseInt(menu[i][3]), menu[i][4], menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
                     
                     //Add an accuracy point each time the user's input for the following options is the same as the food's
                     if(recommend1[i].spicy.equals(input[1])){
-                        accuracy[i]++;
+                        accuracy[i]+=2;
                     }            
 
                     if(recommend1[i].hot.equals(input[2])){
-                        accuracy[i]++;
+                        accuracy[i]+=2;
                     }            
 
-                    if(Integer.parseInt(input[3])-100 < recommend1[i].calorie && recommend1[i].calorie > Integer.parseInt(input[3])+100){
-                        accuracy[i]++;
+                    if(Integer.parseInt(input[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(input[3])+100){
+                        accuracy[i]+=2;
                     }
                 }
             }
@@ -100,27 +100,24 @@ public class Food {
         int count = 0;
         for(int z = 0; z < recommend1.length; z++){
             
-            //If the highest accuracy score is 3, add all Food items with accuracy score 3 into an array recommendMeal
-            if(getMax(accuracy) == 3){
-                if(accuracy[z] == 3){
-                    recommendMeal[count] = recommend1[z];
-                    count+=2;
-                    
-                }
-            }
-             //If the highest accuracy score is 2, add all Food items with accuracy score 2 into an array recommendMeal           
-            else if(getMax(accuracy) == 2){
-                if(accuracy[z] == 2){
-                    recommendMeal[count] = recommend1[z];
-                    count+=2;
+            //If the highest accuracy score is 6, add all Food items with accuracy score 6 into an array recommendMeal
+            if(getMax(accuracy) == 6){
+                if(accuracy[z] == 6){
+                    recommendMeal[count] = recommend1[z]; 
                 }
             }
             
-            //If the highest accuracy score is 1, add all Food items with accuracy score 1 into an array recommendMeal            
-            else if(getMax(accuracy) == 1){
-                if(accuracy[z] == 1){
+             //If the highest accuracy score is 4, add all Food items with accuracy score 4 into an array recommendMeal           
+            else if(getMax(accuracy) == 4){
+                if(accuracy[z] == 4){
                     recommendMeal[count] = recommend1[z];
-                    count+=2;
+                }
+            }
+            
+            //If the highest accuracy score is 2, add all Food items with accuracy score 2 into an array recommendMeal            
+            else if(getMax(accuracy) == 2){
+                if(accuracy[z] == 2){
+                    recommendMeal[count] = recommend1[z];
                 }
             }
  
@@ -135,7 +132,7 @@ public class Food {
     }
     
     //CALCULATE PERCENTAGE ACCURACY OF THE OUTPUT COMPARED TO USER'S INPUTS
-    public String calculateRating(Food f){
+    public double calculateRating(Food f){
         if(Double.parseDouble(input[0]) == price){
             rating+=2;
         }
@@ -157,9 +154,8 @@ public class Food {
         }
         
         //Accuracy percentage of meal
-        double score = rating/10*100;
+        return rating/10*100;
         
-        return "The recommended meal is " + score + "% accurate to your preferences!";
     }
     
     //GET MAX VALUE - used in the CheckFood() Method
@@ -175,26 +171,26 @@ public class Food {
     
     //PRINT INFO
     public void printFood(Food f, Food ff){
-        String percentage1 = calculateRating(f);
-        String percentage2 = calculateRating(ff);
+        double percentage1 = calculateRating(f);
+        double percentage2 = calculateRating(ff);
         
+        //Print first choice meal
         System.out.println("Your first choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingrediants");        
+        System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
+                "CALORIES" +  "\t" + "USED RESTRICTIONS");        
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
-                calorie +  "\t" + restrictions);
-        System.out.println(percentage1);
+                calorie +  "\t" + restrictions + "\t" + condition1 + "\t" + condition2 + "\t" + condition3);
+        System.out.println("Your meal is " + percentage1 +"% accurate!");
         
         System.out.println("");
         
+        //Print second meal choice
         System.out.println("Your second choice recommended meal is:");
-        System.out.println("");
-        System.out.println("Name" + "\t " + "Price" + " \t" + "Spicy/Mild" + "\t "  + "Hot/Cold" + "\t" + 
-                "Calories" +  "\t" + "Any Used Restricted Ingredients");        
+        System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
+                "CALORIES" +  "\t" + "USED RESTRICTIONS");       
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
-                calorie +  "\t" + restrictions);
-        System.out.println(percentage1);        
+                calorie +  "\t" + restrictions + "\t" + condition1 + "\t" + condition2 + "\t" + condition3);
+        System.out.println("Your meal is " + percentage2 +"% accurate!");        
     }
     
     FoodRecommend fr = new FoodRecommend();
