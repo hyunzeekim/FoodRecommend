@@ -87,8 +87,8 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
-  public void printFood(Food f, Food ff){
-        super.printFood(f, ff);
+  public void printFood(Food[] finalOptions){
+        
     }
     
     
