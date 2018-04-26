@@ -16,7 +16,6 @@ public class Entree extends Food {
     Food[] options;
     double[] ratings;
     Food[] finalOptions;
-    FoodRecommend fr = new FoodRecommend();
    
     //Same constructor made for this
      public Entree(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
@@ -24,6 +23,7 @@ public class Entree extends Food {
     }   
     
     
+    @Override
     public Food[] checkFood(FileReader f) throws IOException {
         int index = 0;
         //Uses checkFood method from Food class to create a new array based of 3 conditions
