@@ -179,7 +179,7 @@ public class Food {
         System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
                 "CALORIES" +  "\t" + "USED RESTRICTIONS");        
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
-                calorie +  "\t" + restrictions);
+                calorie +  "\t" + restrictions + "\t" + condition1 + "\t" + condition2 + "\t" + condition3);
         System.out.println("Your meal is " + percentage1 +"% accurate!");
         
         System.out.println("");
@@ -189,7 +189,7 @@ public class Food {
         System.out.println("NAME" + "\t " + "PRICE" + " \t" + "SPICY?" + "\t "  + "HOT?" + "\t" + 
                 "CALORIES" +  "\t" + "USED RESTRICTIONS");       
         System.out.println(name + "\t " + price + " \t" + spicy + "\t "  + hot + "\t" + 
-                calorie +  "\t" + restrictions);
+                calorie +  "\t" + restrictions + "\t" + condition1 + "\t" + condition2 + "\t" + condition3);
         System.out.println("Your meal is " + percentage2 +"% accurate!");        
     }
     
