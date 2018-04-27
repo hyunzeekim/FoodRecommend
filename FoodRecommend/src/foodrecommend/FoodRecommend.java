@@ -44,37 +44,36 @@ public class FoodRecommend {
         String currentInput;
 
         System.out.println("Enter your preference: Spicy or Mild?");
-        currentInput = s.nextLine();
-        while (!currentInput.equalsIgnoreCase("Spicy") || !currentInput.equalsIgnoreCase("Mild") ){
-            System.out.println("Please enter again: Spicy or Mild?");
-            currentInput = s.nextLine();
+        currentInput = s.next();
+        
+        while (!currentInput.equalsIgnoreCase("Spicy") && !currentInput.equalsIgnoreCase("Mild") ){
+            System.out.println("Please enter again: Spicy or Mild?" );
+            currentInput = s.next();
         }
         spice = currentInput;
         
         
         System.out.println("Enter your preference: Hot or Cold?");
-        currentInput = s.nextLine();
-        while (!currentInput.equalsIgnoreCase("Hot") || !currentInput.equalsIgnoreCase("Cold") ){
+        currentInput = s.next();
+        while (!currentInput.equalsIgnoreCase("Hot") && !currentInput.equalsIgnoreCase("Cold") ){
             System.out.println("Please enter again: Hot or Cold?");
-            currentInput = s.nextLine();
+            currentInput = s.next();
         }
         hot = currentInput;
         
         
-        System.out.println("Please type in the price that you would like to pay in this forma (ex 10.00): ");
+        System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
         price = s.nextDouble();
-        
         
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
         calorie = s.nextInt();
         
-        System.out.println("Enter one of the following dietary restrictions (Meat / Peanut / Gluten / None):");
-        currentInput = s.nextLine();
+        System.out.println("Enter one of the following dietary restrictions (Meat / Peanut / Gluten / None): ");
+        currentInput = s.next();
         
-        while((!currentInput.equalsIgnoreCase("Meat")||
-                !currentInput.equalsIgnoreCase("Peanut")||!currentInput.equalsIgnoreCase("Gluten")) ||
+        while(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") &&
                 !currentInput.equalsIgnoreCase("None")){
-            System.out.println("Incorrect format. Please retype your restrictions (Meat / Peanut / Gluten / None)");
+            System.out.println("Incorrect format. Please retype your restrictions (Meat / Peanut / Gluten / None):");
             currentInput = s.nextLine();
         }     
         restrictions = currentInput;   
@@ -88,7 +87,7 @@ public class FoodRecommend {
         System.out.println("Choose one of the following (Appetizers / Entree / Desserts)");
         currentInput = s.nextLine();
         
-        while (!currentInput.equalsIgnoreCase("Appetizers") || !currentInput.equalsIgnoreCase("Entree") ||
+        while (!currentInput.equalsIgnoreCase("Appetizers") && !currentInput.equalsIgnoreCase("Entree") &&
                 !currentInput.equalsIgnoreCase("Desserts")){
             System.out.println("Please enter again (Appetizers / Entree / Desserts)");
             currentInput = s.nextLine();
@@ -117,9 +116,9 @@ public class FoodRecommend {
         System.out.println("You have selected Appetizers; please type in one of the following (Salad / Bread / Soup):");
 
         currentInput = s.nextLine();
-        while(!currentInput.equalsIgnoreCase("Salad")||!currentInput.equalsIgnoreCase("Bread")||
+        while(!currentInput.equalsIgnoreCase("Salad")&&!currentInput.equalsIgnoreCase("Bread")&&
                 !currentInput.equalsIgnoreCase("Soup")){
-            System.out.println("Incorrect format. Please retype ( Salad / Bread / Soup");
+            System.out.println("Incorrect format. Please retype ( Salad / Bread / Soup )");
             currentInput = s.nextLine();
         }
         
@@ -141,7 +140,7 @@ public class FoodRecommend {
         System.out.println("You have selected Entree, please type in one of the following (Meat / Seafood / Noodles):");
 
         currentInput = s.nextLine();
-        while(!currentInput.equalsIgnoreCase("Meat")||!currentInput.equalsIgnoreCase("Seafood")||
+        while(!currentInput.equalsIgnoreCase("Meat")&&!currentInput.equalsIgnoreCase("Seafood")&&
                 !currentInput.equalsIgnoreCase("Noodles")){
             System.out.println("Incorrect format. Please retype (Meat / Seafood / Noodles):");
             currentInput = s.nextLine();
@@ -164,7 +163,7 @@ public class FoodRecommend {
         System.out.println("You have selected Desserts, please type in one of the following (Beverage / Fruit / Other):");
 
         currentInput = s.nextLine();
-        while(!currentInput.equalsIgnoreCase("Beverage")||!currentInput.equalsIgnoreCase("Fruit")||
+        while(!currentInput.equalsIgnoreCase("Beverage")&&!currentInput.equalsIgnoreCase("Fruit")&&
                 !currentInput.equalsIgnoreCase("Other")){
             System.out.println("Incorrect format. Please retype (Beverage / Fruit / Other): ");
             currentInput = s.nextLine();
