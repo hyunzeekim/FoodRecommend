@@ -189,10 +189,28 @@ public class FoodRecommend {
         else return false;
     }
     
+<<<<<<< HEAD
     //All the operations in summary;
     public static void main(String[] args) { 
         FoodRecommend f = new FoodRecommend();
         f.InputData();
         f.askForType();
     }
+=======
+//The recommendFood function calls the recommendFood function from the subclasses to get the eventual output.
+/*    public void recommendFood(){
+        if (wantAppetizer == true){
+            FinalRecommend[0] = Appetizers.recommendFood();
+        }
+        //etc I don't know how exactly the subclasses return the final answer.
+        return 
+    }
+    
+//Actually printing the output to the screen.
+    public void printInfo(){
+        for(int n = 0; n< FinalRecommend.length; n++){
+            FinalRecommend[n].printItsInformation();
+        }
+    }*/
+>>>>>>> 4dfbb28a272af062d2f21b68155d4620eee936c9
 }
