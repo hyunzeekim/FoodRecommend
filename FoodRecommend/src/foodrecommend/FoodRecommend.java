@@ -195,19 +195,5 @@ public class FoodRecommend {
         f.InputData();
         f.askForType();
     }
-//The recommendFood function calls the recommendFood function from the subclasses to get the eventual output.
-/*    public void recommendFood(){
-        if (wantAppetizer == true){
-            FinalRecommend[0] = Appetizers.recommendFood();
-        }
-        //etc I don't know how exactly the subclasses return the final answer.
-        return 
-    }
-    
-//Actually printing the output to the screen.
-    public void printInfo(){
-        for(int n = 0; n< FinalRecommend.length; n++){
-            FinalRecommend[n].printItsInformation();
-        }
-    }*/
+
 }
