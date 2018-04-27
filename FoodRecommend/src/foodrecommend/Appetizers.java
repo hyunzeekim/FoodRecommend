@@ -26,18 +26,24 @@ public class Appetizers extends Food {
     
     public Food[] checkFood(FileReader f) throws IOException {
         int index = 0;
+        
+        FileReader appetizers = new FileReader("Appetizers.txt");
+        
         //Uses checkFood method from Food class to create a new array based of 3 conditions
-        for(int i = 0; i < super.checkFood(f).length; i++){
-            if(super.checkFood(f)[i].condition1.equals("Y") && fr.bread == true){
-                super.checkFood(f)[i] = options[index++];
+        for(int i = 0; i < super.checkFood(appetizers).length; i++){
+            if(super.checkFood(appetizers)[i].condition1.equals("Y") && fr.bread == true){
+                super.checkFood(appetizers)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition2.equals("Y") && fr.salad == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(appetizers)[i].condition2.equals("Y") && fr.salad == true){
+                super.checkFood(appetizers)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition3.equals("Y") && fr.soup == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(appetizers)[i].condition3.equals("Y") && fr.soup == true){
+                super.checkFood(appetizers)[i] = options[index];
             }
-                
+            else{
+                super.checkFood(appetizers)[0] = options[index];
+            }
+            index++;
         }
      
         //Recalculates the ratings for the new array of Food
@@ -47,10 +53,10 @@ public class Appetizers extends Food {
             if (options[i].condition1.equals("Y") && fr.bread == true){
                 ratings[i]++;
             }
-            if (options[i].condition2.equals("Y") && fr.bread == true){
+            if (options[i].condition2.equals("Y") && fr.salad == true){
                 ratings[i]++;
             }
-            if (options[i].condition3.equals("Y") && fr.bread == true){
+            if (options[i].condition3.equals("Y") && fr.soup == true){
                 ratings[i]++;
             }
             
@@ -87,8 +93,8 @@ public class Appetizers extends Food {
     return new int[] { index1, index2 };
     }
     
-  public void printFood(){
-        super.printFood(finalOptions[0], finalOptions[1]);
+    public void printAppetizers(){
+          super.printFood(finalOptions[0], finalOptions[1]);
     }
            
 }

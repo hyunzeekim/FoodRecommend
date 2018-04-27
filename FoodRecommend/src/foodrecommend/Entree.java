@@ -22,21 +22,26 @@ public class Entree extends Food {
         super(n,p,r,c,s,h,c1,c2,c3);             
     }   
     
-    @Override
     public Food[] checkFood(FileReader f) throws IOException {
         int index = 0;
+        
+        FileReader entree = new FileReader("Entree.txt");
+        
         //Uses checkFood method from Food class to create a new array based of 3 conditions
-        for(int i = 0; i < super.checkFood(f).length; i++){
-            if(super.checkFood(f)[i].condition1.equals("Y") && fr.meat == true){
-                super.checkFood(f)[i] = options[index++];
+        for(int i = 0; i < super.checkFood(entree).length; i++){
+            if(super.checkFood(entree)[i].condition1.equals("Y") && fr.meat == true){
+                super.checkFood(entree)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition2.equals("Y") && fr.seafood == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(entree)[i].condition2.equals("Y") && fr.seafood == true){
+                super.checkFood(entree)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition3.equals("Y") && fr.noodles == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(entree)[i].condition3.equals("Y") && fr.noodles == true){
+                super.checkFood(entree)[i] = options[index];
             }
-                
+            else{
+                super.checkFood(entree)[0] = options[index];
+            }
+            index++;
         }
      
         //Recalculates the ratings for the new array of Food
@@ -86,7 +91,7 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
-  public void printFood(){
+  public void printEntree(){
         super.printFood(finalOptions[0], finalOptions[1]);
     }
  
