@@ -6,7 +6,8 @@ package foodrecommend;
 
 import static foodrecommend.FoodRecommend.CheckInput;
 import java.util.Scanner;
-
+// Change the place for current instructions
+// Change functions for wrong input.
 /**
  *
  * @author xiaohan
@@ -56,8 +57,6 @@ public class FoodGui extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
         ButtonPreference = new javax.swing.JButton();
-        s = new javax.swing.JTextField();
-        h = new javax.swing.JTextField();
         c = new javax.swing.JTextField();
         r = new javax.swing.JTextField();
         p = new javax.swing.JTextField();
@@ -94,11 +93,6 @@ public class FoodGui extends javax.swing.JFrame {
                 ButtonPreferenceActionPerformed(evt);
             }
         });
-
-        s.setText("Spicy");
-        s.setToolTipText("");
-
-        h.setText("Hot");
 
         c.setText("Calories");
         c.addActionListener(new java.awt.event.ActionListener() {
@@ -251,125 +245,122 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(layout.createSequentialGroup()
                         .add(6, 6, 6)
                         .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 369, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(s, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(49, 49, 49))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .add(layout.createSequentialGroup()
                         .add(readyButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jLabel1)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(h, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(71, 71, 71))
-                    .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createSequentialGroup()
-                                .add(ButtonPreference)
-                                .add(18, 18, 18)
-                                .add(ResetP))
-                            .add(layout.createSequentialGroup()
-                                .add(6, 6, 6)
-                                .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(12, 12, 12)
-                                .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(35, 35, 35)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 360, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
                         .add(62, 62, 62)
                         .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
-                        .add(39, 39, 39)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createSequentialGroup()
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 121, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(AButton))
-                                .add(18, 18, 18)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(layout.createSequentialGroup()
-                                        .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(26, 26, 26)
-                                        .add(RestoreType))
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(EButton)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(DButton)
-                                        .add(18, 18, 18)
-                                        .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 163, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                            .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 360, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(layout.createSequentialGroup()
                         .add(124, 124, 124)
                         .add(currentInstructionLable))
                     .add(layout.createSequentialGroup()
                         .add(34, 34, 34)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 408, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(layout.createSequentialGroup()
-                                .add(jRadioButton1)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createSequentialGroup()
+                                        .add(jRadioButton1)
+                                        .add(18, 18, 18)
+                                        .add(jRadioButton2)))
                                 .add(18, 18, 18)
-                                .add(jRadioButton2))
-                            .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 408, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(370, Short.MAX_VALUE))
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(ResetP)
+                                    .add(ButtonPreference)))))
+                    .add(layout.createSequentialGroup()
+                        .add(39, 39, 39)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 427, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(layout.createSequentialGroup()
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(AButton)
+                                        .add(35, 35, 35))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 121, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(18, 18, 18)))
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(EButton))
+                                .add(18, 18, 18)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(6, 6, 6)
+                                        .add(DButton))
+                                    .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(28, 28, 28)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 163, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(RestoreType)))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 431, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(102, 102, 102)))
+                .addContainerGap(88, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .add(0, 0, Short.MAX_VALUE)
+                .add(jLabel1)
+                .add(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 162, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(9, 9, 9)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 159, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(currentInstructionLable)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 52, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(AButton)
                     .add(EButton)
                     .add(DButton)
-                    .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(RestoreType))
-                .add(45, 45, 45)
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(ButtonPreference)
-                    .add(ResetP))
-                .add(4, 4, 4)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jRadioButton1)
-                    .add(jRadioButton2))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createSequentialGroup()
+                        .add(40, 40, 40)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jRadioButton1)
+                            .add(jRadioButton2)))
+                    .add(layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(ResetP)))
                 .add(12, 12, 12)
                 .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(3, 3, 3)
                 .add(readyButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(35, 35, 35)
-                        .add(s, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(1, 1, 1)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jLabel1)
-                            .add(h, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 58, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(7, 7, 7))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 58, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(4, 4, 4)
+                .add(jLabel1)
+                .addContainerGap())
         );
 
         pack();
@@ -378,26 +369,6 @@ public class FoodGui extends javax.swing.JFrame {
     private void ButtonPreferenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPreferenceActionPerformed
 
         String currentInput;
-  /*      currentInstruction.setText("Please type in y/n for the spice and hot textfield.");
-        
-        currentInput = s.getText();
-        //The spice and hot are replaced with radio buttons which I have not tested yet
-        while (CheckInput(currentInput) != true){
-            IncorrectInput.setText("Incorrect input format, please enter again \nfollowing the specific instructions.");
-            currentInput = s.getText();
-            s.setText("Spicy");
-        }
-        spice = currentInput;
-        
-        
-        currentInput = h.getText();
-        while (CheckInput(currentInput) != true){
-            IncorrectInput.setText("Incorrect input format, please enter again \nfollowing the specific instructions.");
-            currentInput = h.getText();
-            h.setText("Hot");
-        }
-        hot = currentInput;*/
-        
         
         currentInstruction.setText("Please type in the price that you would like to pay in this format: 10.00");
         //Make a method that check the format here.
@@ -414,7 +385,6 @@ public class FoodGui extends javax.swing.JFrame {
                 + "if you have multiple restriciontions, please seperate them with a comma(Eg: meat,peanut)");
 
         currentInput = r.getText();
-        r.setText("Restrictions");
         while((currentInput.contains("meat")||
                 currentInput.contains("peanut")||
                 currentInput.contains("gluten")||
@@ -423,7 +393,6 @@ public class FoodGui extends javax.swing.JFrame {
         {
             IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
             currentInput = r.getText();
-            r.setText("Restrictions");
         }
         String [] threeRestriction = new String[3];
         String [] twoRestriction = new String[2];
@@ -434,7 +403,7 @@ public class FoodGui extends javax.swing.JFrame {
             threeRestriction[2]=currentInput.substring(currentInput.indexOf(",",currentInput.indexOf(",")),currentInput.length()-1);
             restrictions = threeRestriction;
         }
-        else if(currentInput.length()>4){
+        else if(currentInput.length()>6){
             twoRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
             twoRestriction[1] = currentInput.substring(currentInput.indexOf(",")-1);
             restrictions = threeRestriction;
@@ -444,94 +413,114 @@ public class FoodGui extends javax.swing.JFrame {
             restrictions = oneRestriciton;
         }
         preferencesReady = true;
+        IncorrectInput.setText("Successful input");
         
     }//GEN-LAST:event_ButtonPreferenceActionPerformed
 
     private void EButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EButtonActionPerformed
         String currentInput;
-        
-        wantEntree = true;
-        currentInstruction.setText("You have selected Entree, please type in one of the following \n"
-                + "in the text field below the Entree button and press enter:\nMeat/Seafood/Noodles");
-        currentType.setText("Current type: Entree");
-        
-        currentInput = EntreeType.getText();
-        while((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
-                currentInput.equalsIgnoreCase("noudles"))!= true){
-            IncorrectInput.setText("Incorrect format. Please retype:"
-                    + "meat/seafood/noodles");
-            currentInput = EntreeType.getText();
-            EntreeType.setText("Entree type");
-        }
-        
-        if(currentInput.equalsIgnoreCase("meat")){
-            meat = true;
-        }
-        else if(currentInput.equals("seafood")){
-            seafood = true;
+        if(typeReady == true && wantEntree == false){
+            IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
+                    + "Please reset the food types before entering.");
         }
         else{
-            noodles = true;
+            wantEntree = true;
+            currentInstruction.setText("You have selected Entree, please type in one of the following \n"
+                    + "in the text field below the Entree button and press enter:\nMeat/Seafood/Noodles");
+            currentType.setText("Current type: Entree");
+
+            currentInput = EntreeType.getText();
+            if((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
+                    currentInput.equalsIgnoreCase("noudles"))!= true){
+                IncorrectInput.setText("Incorrect format. Please retype:"
+                        + "meat/seafood/noodles");
+            }
+            else{
+                typeReady = true;
+                IncorrectInput.setText("Successful input ("+currentInput+")");
+                if(currentInput.equalsIgnoreCase("meat")){
+                    meat = true;
+                }
+                else if(currentInput.equals("seafood")){
+                    seafood = true;
+                }
+                else{
+                    noodles = true;
+                }
+            } 
         }
-        typeReady = true;
     }//GEN-LAST:event_EButtonActionPerformed
 
     private void AButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AButtonActionPerformed
         // TODO add your handling code here:
         String currentInput;
-        
-        wantAppetizer = true;
-        currentInstruction.setText("You have selected Appetizers, please type in one of the following\n"
-                + " in the text field below the appetizers button and press enter:\nSalad/Bread/Soup");
-        currentType.setText("Current type: Appetizers");
-        
-        currentInput = AppetizerType.getText();
-        while((currentInput.equalsIgnoreCase("Salad")||currentInput.equalsIgnoreCase("Bread")||
-                currentInput.equalsIgnoreCase("Soup"))!= true){
-            IncorrectInput.setText("Incorrect format. Please retype:"
-                    + "salad/bread/soup");
-            AppetizerType.setText("Appetizer type");
-            currentInput = AppetizerType.getText();
-        }
-        
-        if(currentInput.equalsIgnoreCase("salad")){
-            salad = true;
-        }
-        else if(currentInput.equalsIgnoreCase("bread")){
-            bread = true;
+        if(typeReady == true && wantAppetizer == false){
+            IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
+                    + "Please reset the food types before entering.");
         }
         else{
-            soup = true;
-        } 
-        typeReady = true;
+            wantAppetizer = true;
+            
+            currentInstruction.setText("You have selected Appetizers, please type in one of the following\n"
+                    + " in the text field below the appetizers button and press enter:\nSalad/Bread/Soup");
+            currentType.setText("Current type: Appetizers");
+
+            currentInput = AppetizerType.getText();
+            System.out.println(currentInput);
+            if((currentInput.equalsIgnoreCase("Salad")||currentInput.equalsIgnoreCase("Bread")||
+                    currentInput.equalsIgnoreCase("Soup"))!= true){
+                IncorrectInput.setText("Incorrect format. Please retype:"
+                        + "salad/bread/soup");
+            }
+            else{
+                    typeReady = true;
+                    IncorrectInput.setText("Successful input ("+currentInput+")");
+                    if(currentInput.equalsIgnoreCase("salad")){
+                        salad = true;
+                    }
+                    else if(currentInput.equalsIgnoreCase("bread")){
+                        bread = true;
+                    }
+                    else{
+                        soup = true;
+                } 
+            }
+        }
     }//GEN-LAST:event_AButtonActionPerformed
 
     private void DButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DButtonActionPerformed
         String currentInput;
-        
-        wantDessert = true;
-        currentInstruction.setText("You have selected Desserts, please type in one of the following\n"
-                + " in the text field below the Dessert button and press enter:\nBeverage/Fruit/Other");
-        currentType.setText("Current type: Desserts");
-        
-        currentInput = DessertType.getText();
-        while((currentInput.equalsIgnoreCase("beverage")||currentInput.equalsIgnoreCase("fruit")||
-                currentInput.equalsIgnoreCase("other"))!= true){
-            IncorrectInput.setText("Incorrect format. Please retype: beverage/fruit/other");
-            DessertType.setText("Dessert type");
-            currentInput = DessertType.getText();
-        }
-        
-        if(currentInput.equalsIgnoreCase("beverage")){
-            beverage = true;
-        }
-        else if(currentInput.equals("fruit")){
-            fruit = true;
+        if(typeReady == true && wantDessert == false){
+            IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
+                    + "Please reset the food types before entering.");
         }
         else{
-            dessertother = true;
-        }        // TODO add your handling code here:
-        typeReady = true;
+            wantDessert = true;
+            currentInstruction.setText("You have selected Desserts, please type in one of the following\n"
+                    + " in the text field below the Dessert button and press enter:\nBeverage/Fruit/Other");
+            currentType.setText("Current type: Desserts");
+
+            currentInput = DessertType.getText();
+            if((currentInput.equalsIgnoreCase("beverage")||currentInput.equalsIgnoreCase("fruit")||
+                    currentInput.equalsIgnoreCase("other"))!= true){
+                IncorrectInput.setText("Incorrect format. Please retype: beverage/fruit/other");
+            }
+            else{
+                typeReady = true;
+                IncorrectInput.setText("Successful input ("+currentInput+")");
+                
+                if(currentInput.equalsIgnoreCase("beverage")){
+                    beverage = true;
+                }
+                else if(currentInput.equals("fruit")){
+                    fruit = true;
+                }
+                else{
+                    dessertother = true;
+                }        // TODO add your handling code here:
+                typeReady = true;
+            }
+        }
     }//GEN-LAST:event_DButtonActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -590,19 +579,10 @@ public class FoodGui extends javax.swing.JFrame {
 
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
         // TODO add your handling code here:
-        if (calorie == -1){
-            IncorrectInput.setText("You have not input the calorie yet, please enter the calorie first.");
-        }
     }//GEN-LAST:event_pActionPerformed
 
     private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
         // TODO add your handling code here:
-        if (calorie == -1){
-            IncorrectInput.setText("You have not input the calorie yet, please enter the calorie first.");
-        }
-        else if(price == -1){
-            IncorrectInput.setText("You have not input the price yet, please enter the price first.");
-        }
     }//GEN-LAST:event_rActionPerformed
 
     private void RestoreTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestoreTypeActionPerformed
@@ -614,6 +594,8 @@ public class FoodGui extends javax.swing.JFrame {
        EntreeType.setText("Entree type");
        wantDessert = false;
        DessertType.setText("Dessert type");
+       
+       typeReady = false;
        
        bread = false;
        salad = false;
@@ -712,8 +694,6 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextArea currentInstruction;
     private javax.swing.JLabel currentInstructionLable;
     private javax.swing.JTextArea currentType;
-    private javax.swing.JTextField generalInstructions;
-    private javax.swing.JTextField h;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
@@ -727,6 +707,5 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextField p;
     private javax.swing.JTextField r;
     private javax.swing.JButton readyButton;
-    private javax.swing.JTextField s;
     // End of variables declaration//GEN-END:variables
 }

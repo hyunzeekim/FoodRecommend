@@ -223,7 +223,7 @@ public class FoodRecommend {
     }
     
 //The recommendFood function calls the recommendFood function from the subclasses to get the eventual output.
-    public void recommendFood(){
+/*    public void recommendFood(){
         if (wantAppetizer == true){
             FinalRecommend[0] = Appetizers.recommendFood();
         }
@@ -236,5 +236,5 @@ public class FoodRecommend {
         for(int n = 0; n< FinalRecommend.length; n++){
             FinalRecommend[n].printItsInformation();
         }
-    }
+    }*/
 }
