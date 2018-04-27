@@ -29,18 +29,24 @@ public class Desserts extends Food {
     
     public Food[] checkFood(FileReader f) throws IOException {
         int index = 0;
+        
+        FileReader desserts = new FileReader("Desserts.txt");
+        
         //Uses checkFood method from Food class to create a new array based of 3 conditions
-        for(int i = 0; i < super.checkFood(f).length; i++){
-            if(super.checkFood(f)[i].condition1.equals("Y") && fr.beverage == true){
-                super.checkFood(f)[i] = options[index++];
+        for(int i = 0; i < super.checkFood(desserts).length; i++){
+            if(super.checkFood(desserts)[i].condition1.equals("Y") && fr.beverage == true){
+                super.checkFood(desserts)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition2.equals("Y") && fr.fruit == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(desserts)[i].condition2.equals("Y") && fr.fruit == true){
+                super.checkFood(desserts)[i] = options[index];
             }
-            if(super.checkFood(f)[i].condition3.equals("Y") && fr.dessertother == true){
-                super.checkFood(f)[i] = options[index++];
+            else if(super.checkFood(desserts)[i].condition3.equals("Y") && fr.dessertother == true){
+                super.checkFood(desserts)[i] = options[index];
             }
-                
+            else{
+                super.checkFood(desserts)[0] = options[index];
+            }
+            index++;
         }
      
         //Recalculates the ratings for the new array of Food
