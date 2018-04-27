@@ -341,8 +341,6 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-=======
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -356,7 +354,6 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(AButton)
                     .add(EButton)
                     .add(DButton)
->>>>>>> b9a892093654ec1d9bff6535ada1ada3264182fc
                     .add(RestoreType))
                 .add(45, 45, 45)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
