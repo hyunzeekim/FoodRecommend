@@ -189,14 +189,12 @@ public class FoodRecommend {
         else return false;
     }
     
-<<<<<<< HEAD
     //All the operations in summary;
     public static void main(String[] args) { 
         FoodRecommend f = new FoodRecommend();
         f.InputData();
         f.askForType();
     }
-=======
 //The recommendFood function calls the recommendFood function from the subclasses to get the eventual output.
 /*    public void recommendFood(){
         if (wantAppetizer == true){
@@ -212,5 +210,4 @@ public class FoodRecommend {
             FinalRecommend[n].printItsInformation();
         }
     }*/
->>>>>>> 4dfbb28a272af062d2f21b68155d4620eee936c9
 }
