@@ -4,7 +4,7 @@
  */
 package foodrecommend;
 
-import static foodrecommend.FoodRecommend.CheckInput;
+//import static foodrecommend.FoodRecommend.CheckInput;
 import java.util.Scanner;
 
 /**
@@ -330,11 +330,12 @@ public class FoodGui extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 52, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(AButton)
-                    .add(EButton)
-                    .add(DButton)
-                    .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(AButton)
+                        .add(EButton)
+                        .add(DButton)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -712,7 +713,6 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextArea currentInstruction;
     private javax.swing.JLabel currentInstructionLable;
     private javax.swing.JTextArea currentType;
-    private javax.swing.JTextField generalInstructions;
     private javax.swing.JTextField h;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
