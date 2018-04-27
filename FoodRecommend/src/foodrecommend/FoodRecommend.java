@@ -180,16 +180,9 @@ public class FoodRecommend {
         else if(currentInput.equalsIgnoreCase("Other")){
             dessertother = true;
         }
- }
-    
-    public static boolean ToBoolean(String decision){
-        if(decision.equalsIgnoreCase("Y")){
-            return true;
-        }
-        else return false;
     }
     
-    //All the operations in summary;
+    //Main 
     public static void main(String[] args) { 
         FoodRecommend f = new FoodRecommend();
         f.InputData();
