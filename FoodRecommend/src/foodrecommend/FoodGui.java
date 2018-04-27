@@ -323,7 +323,6 @@ public class FoodGui extends javax.swing.JFrame {
                 .add(currentInstructionLable)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 52, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -336,7 +335,6 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-=======
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -350,7 +348,6 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(AButton)
                     .add(EButton)
                     .add(DButton)
->>>>>>> 4dfbb28a272af062d2f21b68155d4620eee936c9
                     .add(RestoreType))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -709,10 +706,7 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextArea currentInstruction;
     private javax.swing.JLabel currentInstructionLable;
     private javax.swing.JTextArea currentType;
-<<<<<<< HEAD
     private javax.swing.JTextField h;
-=======
->>>>>>> 4dfbb28a272af062d2f21b68155d4620eee936c9
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
