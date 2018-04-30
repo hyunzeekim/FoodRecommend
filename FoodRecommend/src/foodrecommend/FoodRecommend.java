@@ -73,9 +73,14 @@ public class FoodRecommend {
         System.out.println("If you have more than one, please separate the restriction with a semicolon (e.g. Meat;Peanut)");
         currentInput = s.next();
         
-        while(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") &&
-                !currentInput.equalsIgnoreCase("None")&&!currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
-                &&!currentInput.equalsIgnoreCase("Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Meat;Peanut;Gluten")){
+        while(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
+                &&!currentInput.equalsIgnoreCase("None")&&!
+                currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
+                &&!currentInput.equalsIgnoreCase("Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Meat")&&!
+                currentInput.equalsIgnoreCase("Gluten;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Peanut")&&!
+                currentInput.equalsIgnoreCase("Meat;Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Meat;Gluten;Peanut")
+                &&!currentInput.equalsIgnoreCase("Gluten;Peanut;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Meat;Peanut")
+                &&!currentInput.equalsIgnoreCase("Peanut;Meat;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Gluten;Meat")){
             System.out.println("Incorrect format. Please retype your restrictions in the order (Meat / Peanut / Gluten / None):");
             currentInput = s.nextLine();
         }     
