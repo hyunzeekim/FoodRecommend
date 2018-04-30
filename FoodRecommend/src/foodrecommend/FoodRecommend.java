@@ -32,14 +32,15 @@ public class FoodRecommend {
     String beverage;
     String fruit;
     String dessertother;
-    String[] inputs = new String[5];
-    String[] app = new String[3];
+    static String[] inputs = new String[5];
+    static String[] app = new String[3];
     String[] ent = new String[3];
     String[] des = new String[3];
     
     boolean wantAppetizer = false;
     boolean wantEntree = false;
     boolean wantDessert = false;
+    boolean test = false;
     
     Food [] FinalRecommend = new Food[4];
     
@@ -92,6 +93,10 @@ public class FoodRecommend {
         inputs[3] = Integer.toString(calorie);
         inputs[4] = restrictions;
         
+        return inputs;
+    }
+    
+    public String[] returnUserInput() {
         return inputs;
     }
     
@@ -206,18 +211,34 @@ public class FoodRecommend {
         }
         return des;
     }
-    
+ 
+    public void printDesiredInput(String want)throws IOException{
+        FoodRecommend f = new FoodRecommend();
+
+        if(want.equalsIgnoreCase("Appetizers")){
+            f.AppetizersInput();
+            Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            a.printAppetizers();
+        }            
+        
+        else if(want.equalsIgnoreCase("Entree")){
+            f.EntreeInput();
+            Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            e.printEntree();
+        }
+        
+        else{       
+            f.DessertInput();
+            Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            d.printDesserts();
+        }    
+        
+    }
     //Main 
     public static void main(String[] args) throws IOException { 
         FoodRecommend f = new FoodRecommend();
-        String[] userInput = f.InputData();
-        String desiredMeal = f.askForType();
-
-        if(desiredMeal.equalsIgnoreCase("Appetizers")){
-            String[] app = f.AppetizersInput();
-            Appetizers a = new Appetizers("", Double.parseDouble(userInput[2]), userInput[4], Integer.parseInt(userInput[3]), userInput[0], userInput[1], app[0], app[1], app[2]);
-            a.printAppetizers();
-        }
+        f.InputData();
+        String desired = f.askForType();
+        f.printDesiredInput(desired);
     }
-
 }
