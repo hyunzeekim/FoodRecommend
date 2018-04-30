@@ -75,6 +75,8 @@ public class FoodGui extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        ResetType = new javax.swing.JButton();
+        ResetP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -216,14 +218,26 @@ public class FoodGui extends javax.swing.JFrame {
 
         jLabel6.setText("OUTPUT:");
 
+        ResetType.setText("Reset Type");
+        ResetType.setToolTipText("");
+        ResetType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetTypeActionPerformed(evt);
+            }
+        });
+
+        ResetP.setText("Reset Calories, Price and Restricions");
+        ResetP.setToolTipText("");
+        ResetP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetPActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(readyButton)
-                .add(181, 181, 181))
             .add(layout.createSequentialGroup()
                 .add(35, 35, 35)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -237,7 +251,9 @@ public class FoodGui extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(EButton)
                                 .add(6, 6, 6)
-                                .add(DButton))
+                                .add(DButton)
+                                .add(18, 18, 18)
+                                .add(ResetType))
                             .add(layout.createSequentialGroup()
                                 .add(jLabel5)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -271,13 +287,22 @@ public class FoodGui extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(jScrollPane3)))
                         .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 582, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(readyButton)
+                        .add(181, 181, 181))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(ResetP)
+                        .add(136, 136, 136))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane2)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -288,14 +313,17 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(ButtonPreference))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(ResetP)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(AButton)
                     .add(EButton)
                     .add(DButton)
-                    .add(jLabel4))
+                    .add(jLabel4)
+                    .add(ResetType))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -542,6 +570,45 @@ public class FoodGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_currentTypeActionPerformed
 
+    private void ResetTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTypeActionPerformed
+        // TODO add your handling code here:
+               currentType.setText("Current type: None");
+       wantAppetizer = false;
+       AppetizerType.setText("Appetizer type");
+       wantEntree = false;
+       EntreeType.setText("Entree type");
+       wantDessert = false;
+       DessertType.setText("Dessert type");
+       
+       typeReady = false;
+       
+       bread = false;
+       salad = false;
+       soup = false;
+       meat = false;
+       seafood = false;
+       noodles = false;
+       beverage = false;
+       fruit = false;
+       dessertother = false;
+       
+       IncorrectInput.setText("");
+    }//GEN-LAST:event_ResetTypeActionPerformed
+
+    private void ResetPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetPActionPerformed
+        // TODO add your handling code here:
+        price = -1;
+        calorie = -1;
+        String[] a = {"none"};
+        restrictions = a;
+        preferencesReady = false;
+        
+        p.setText("Price");
+        c.setText("Calorie");
+        r.setText("Restrictions");
+        IncorrectInput.setText("");
+    }//GEN-LAST:event_ResetPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -598,6 +665,8 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextField EntreeType;
     private javax.swing.JTextArea FinalOutput;
     private javax.swing.JTextArea IncorrectInput;
+    private javax.swing.JButton ResetP;
+    private javax.swing.JButton ResetType;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;

@@ -39,6 +39,15 @@ public class FoodRecommend {
 
         Scanner s = new Scanner(System.in);
         String currentInput;
+        String [] notNumber = new String[244];
+        int n = 0;
+        for(n=0; n<45;n++){
+            notNumber[n]=Character.toString((char)n);
+        }
+        notNumber[47]=Character.toString((char)47);
+        for(n=58;n<255;n++){
+            notNumber[n-11]=Character.toString((char)n);
+        }
 
         //Spicy
         System.out.println("Enter your preference: Spicy or Mild?");
@@ -64,9 +73,10 @@ public class FoodRecommend {
         System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
         price = s.nextDouble();
         
-        //Calories
+        currentInput = s.next();
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
-        calorie = s.nextInt();
+        while(currentInput.contains(hot))
+        calorie = Integer.parseInt(currentInput);
         
         //Restrictions
         System.out.println("Enter one of the following dietary restrictions (Meat / Peanut / Gluten / None): ");
