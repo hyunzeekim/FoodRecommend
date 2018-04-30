@@ -351,13 +351,17 @@ public class FoodGui extends javax.swing.JFrame {
 
         String currentInput;
         
-        //Make a method that check the format here.
-        //Reset the text if format is incorrect: p.setText("Price");
+        currentInput = p.getText();
+        while(checkIntegerDouble(currentInput).equals("integer")!=true){
+            IncorrectInput.setText("Input failed. Price Input format is incorrect.");
+        }
         price = Double.parseDouble(p.getText());
         
-        //Make a method that check the format here.
-        //Reset the text if format is incorrect: c.setText("Calorie");
-        calorie = Integer.parseInt(c.getText());
+        currentInput = c.getText();
+        while(checkIntegerDouble(currentInput).equals("integer")!=true){
+            IncorrectInput.setText("Input failed. Calorie Input format is incorrect.");
+        }
+        calorie = Integer.parseInt(currentInput);
         
         currentInput = r.getText();
 
@@ -642,6 +646,40 @@ public class FoodGui extends javax.swing.JFrame {
                 new FoodGui().setVisible(true);
             }
         });
+    }
+        public static String checkIntegerDouble(String s){
+        
+        String [] notNumber = new String[244];
+        boolean work = true;
+        int n = 0;
+        
+        for(n=0; n<46;n++){
+            notNumber[n]=Character.toString((char)n);
+        }
+        notNumber[46]=Character.toString((char)47);
+        for(n=58;n<255;n++){
+            notNumber[n-11]=Character.toString((char)n);
+        }
+        
+        
+        for(int i = 0;i<notNumber.length;i++){
+            if(s.contains(notNumber[i])){
+                work = false;
+                break;
+            }
+        }
+        
+        if(work == true){
+            if(s.contains(".")){
+                if(s.indexOf(".")<s.length()-3 
+                        && (s.substring(s.indexOf(".")).contains("."))==false)
+                    return("double");
+                else return "character";
+            } 
+            else return("integer");
+        }
+        else return("character");
+
     }
     public static boolean ToBoolean(String decision){
         if(decision.equalsIgnoreCase("Y")){
