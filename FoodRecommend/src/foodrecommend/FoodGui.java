@@ -332,18 +332,24 @@ public class FoodGui extends javax.swing.JFrame {
         calorie = Integer.parseInt(c.getText());
         
         currentInput = r.getText();
-        while((currentInput.contains("meat")||
-                currentInput.contains("peanut")||
-                currentInput.contains("gluten")||
-                currentInput.contains("none"))!= true
-               )//Make a more accurate method that check the format to replace this one
+
+        while(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
+                &&!currentInput.equalsIgnoreCase("None")&&!
+                currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
+                &&!currentInput.equalsIgnoreCase("Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Meat")&&!
+                currentInput.equalsIgnoreCase("Gluten;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Peanut")&&!
+                currentInput.equalsIgnoreCase("Meat;Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Meat;Gluten;Peanut")
+                &&!currentInput.equalsIgnoreCase("Gluten;Peanut;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Meat;Peanut")
+                &&!currentInput.equalsIgnoreCase("Peanut;Meat;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Gluten;Meat"))
         {
             IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
             currentInput = r.getText();
-        }
+        } 
+        
         String [] threeRestriction = new String[3];
         String [] twoRestriction = new String[2];
         String [] oneRestriciton = new String[1];
+        
         if(currentInput.length()>8){
             threeRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
             threeRestriction[1]=currentInput.substring(currentInput.indexOf(",")+1,currentInput.indexOf(",",currentInput.indexOf(",")));
