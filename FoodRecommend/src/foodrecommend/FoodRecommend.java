@@ -70,12 +70,19 @@ public class FoodRecommend {
         hot = currentInput;
         
         //Price
+        currentInput = s.next();
         System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
-        price = s.nextDouble();
+        while(checkIntegerDouble(currentInput).equals("integer")!=true&&
+                checkIntegerDouble(currentInput).equals("double")!=true){
+            System.out.println("Please Enter again");
+        }
+        price = Double.parseDouble(currentInput);
         
         currentInput = s.next();
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
-        while(currentInput.contains(hot))
+        while(checkIntegerDouble(currentInput).equals("integer")!=true){
+            System.out.println("Please Enter again");
+        }
         calorie = Integer.parseInt(currentInput);
         
         //Restrictions
@@ -260,5 +267,39 @@ public class FoodRecommend {
         f.InputData();
         String desired = f.askForType();
         f.printDesiredInput(desired);
+    }
+    public static String checkIntegerDouble(String s){
+        
+        String [] notNumber = new String[244];
+        boolean work = true;
+        int n = 0;
+        
+        for(n=0; n<46;n++){
+            notNumber[n]=Character.toString((char)n);
+        }
+        notNumber[46]=Character.toString((char)47);
+        for(n=58;n<255;n++){
+            notNumber[n-11]=Character.toString((char)n);
+        }
+        
+        
+        for(int i = 0;i<notNumber.length;i++){
+            if(s.contains(notNumber[i])){
+                work = false;
+                break;
+            }
+        }
+        
+        if(work == true){
+            if(s.contains(".")){
+                if(s.indexOf(".")<s.length()-3 
+                        && (s.substring(s.indexOf(".")).contains("."))==false)
+                    return("double");
+                else return "character";
+            } 
+            else return("integer");
+        }
+        else return("character");
+
     }
 }
