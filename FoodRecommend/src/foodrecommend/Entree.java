@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class Entree extends Food {
     Food[] options;
+    Food[] option = new Food[20];
+    Food[] recommend = new Food[20];
     double[] ratings;
     Food[] finalOptions;
     Food[] finalMeals= new Food[2];
@@ -20,12 +22,11 @@ public class Entree extends Food {
     public Food[] checkEnt(FileReader f) throws IOException {
         int index = 0;
 
-        //Uses checkFood method from Food class to create a new array based off 3 conditions
-        Food[] recommend = new Food[20];
-        recommend = super.checkFood(f);
-        
+        //Uses checkFood method from Food class to create a new array based off 3 conditions        
         //Compare inputs to menu
         for(int i = 0; i < recommend.length; i++){
+            recommend[i] = super.checkFood(f)[i];
+
             if(recommend[i].condition1.equals("Y") && fr.ent[0].equalsIgnoreCase("Y")){
                 recommend[i] = options[index];
             }
@@ -72,7 +73,7 @@ public class Entree extends Food {
     public Food[] getFood() throws IOException {
         //Used to find highest ratings, and returns an array of index values
         FileReader entree = new FileReader("Entree.txt");
-        Food[] option = checkEnt(entree);        
+        option = checkEnt(entree);        
         double[] rrating = getRating(option);
         int[] x = getTwo(rrating);
         
