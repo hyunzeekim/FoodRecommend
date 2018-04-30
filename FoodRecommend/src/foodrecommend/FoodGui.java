@@ -352,53 +352,56 @@ public class FoodGui extends javax.swing.JFrame {
         String currentInput;
         
         currentInput = p.getText();
-        while(checkIntegerDouble(currentInput).equals("integer")!=true){
+        if(checkIntegerDouble(currentInput).equals("integer")!=true){
             IncorrectInput.setText("Input failed. Price Input format is incorrect.");
         }
-        price = Double.parseDouble(p.getText());
-        
-        currentInput = c.getText();
-        while(checkIntegerDouble(currentInput).equals("integer")!=true){
-            IncorrectInput.setText("Input failed. Calorie Input format is incorrect.");
-        }
-        calorie = Integer.parseInt(currentInput);
-        
-        currentInput = r.getText();
-
-        while(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
-                &&!currentInput.equalsIgnoreCase("None")&&!
-                currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
-                &&!currentInput.equalsIgnoreCase("Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Meat")&&!
-                currentInput.equalsIgnoreCase("Gluten;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Peanut")&&!
-                currentInput.equalsIgnoreCase("Meat;Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Meat;Gluten;Peanut")
-                &&!currentInput.equalsIgnoreCase("Gluten;Peanut;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Meat;Peanut")
-                &&!currentInput.equalsIgnoreCase("Peanut;Meat;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Gluten;Meat"))
-        {
-            IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
-            currentInput = r.getText();
-        } 
-        
-        String [] threeRestriction = new String[3];
-        String [] twoRestriction = new String[2];
-        String [] oneRestriciton = new String[1];
-        
-        if(currentInput.length()>8){
-            threeRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
-            threeRestriction[1]=currentInput.substring(currentInput.indexOf(",")+1,currentInput.indexOf(",",currentInput.indexOf(",")));
-            threeRestriction[2]=currentInput.substring(currentInput.indexOf(",",currentInput.indexOf(",")),currentInput.length()-1);
-            restrictions = threeRestriction;
-        }
-        else if(currentInput.length()>6){
-            twoRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
-            twoRestriction[1] = currentInput.substring(currentInput.indexOf(",")-1);
-            restrictions = threeRestriction;
-        }
         else{
-            oneRestriciton[0] = currentInput;
-            restrictions = oneRestriciton;
+            price = Double.parseDouble(p.getText());
+
+            currentInput = c.getText();
+            if(checkIntegerDouble(currentInput).equals("integer")!=true){
+                IncorrectInput.setText("Input failed. Calorie Input format is incorrect.");
+            }
+            else{
+                calorie = Integer.parseInt(currentInput);
+                currentInput = r.getText();
+
+                if(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
+                        &&!currentInput.equalsIgnoreCase("None")&&!
+                        currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
+                        &&!currentInput.equalsIgnoreCase("Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Meat")&&!
+                        currentInput.equalsIgnoreCase("Gluten;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Peanut")&&!
+                        currentInput.equalsIgnoreCase("Meat;Peanut;Gluten")&&!currentInput.equalsIgnoreCase("Meat;Gluten;Peanut")
+                        &&!currentInput.equalsIgnoreCase("Gluten;Peanut;Meat")&&!currentInput.equalsIgnoreCase("Gluten;Meat;Peanut")
+                        &&!currentInput.equalsIgnoreCase("Peanut;Meat;Gluten")&&!currentInput.equalsIgnoreCase("Peanut;Gluten;Meat"))
+                {
+                    IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
+                }
+                else{
+                    String [] threeRestriction = new String[3];
+                    String [] twoRestriction = new String[2];
+                    String [] oneRestriciton = new String[1];
+
+                    if(currentInput.length()>8){
+                        threeRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
+                        threeRestriction[1]=currentInput.substring(currentInput.indexOf(",")+1,currentInput.indexOf(",",currentInput.indexOf(",")));
+                        threeRestriction[2]=currentInput.substring(currentInput.indexOf(",",currentInput.indexOf(",")),currentInput.length()-1);
+                        restrictions = threeRestriction;
+                    }
+                    else if(currentInput.length()>6){
+                        twoRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
+                        twoRestriction[1] = currentInput.substring(currentInput.indexOf(",")-1);
+                        restrictions = threeRestriction;
+                    }
+                    else{
+                        oneRestriciton[0] = currentInput;
+                        restrictions = oneRestriciton;
+                    }
+                    preferencesReady = true;
+                    IncorrectInput.setText("Successful input");
+                }
+            }
         }
-        preferencesReady = true;
-        IncorrectInput.setText("Successful input");
         
     }//GEN-LAST:event_ButtonPreferenceActionPerformed
 
