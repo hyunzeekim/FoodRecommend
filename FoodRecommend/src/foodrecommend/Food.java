@@ -21,11 +21,15 @@ public class Food {
     String condition2;
     String condition3;
     double rating;
-    String[] input;
+    String[] input = new String[5];
+    String [] in = new String[5];
+    String[] array = new String[5];
+    String [][] menu = new String[20][9];
+    Food [] recommendMeal = new Food[20];
     FileReader myFiles;
     
     //FOOD CONSTRUCTOR
-    public Food(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
+    public Food(String n, double p, String s,String h, int c,String r,String c1, String c2, String c3){
         name = n;
         restrictions = r;
         price = p;
@@ -37,98 +41,69 @@ public class Food {
         condition3 = c3;
     }
     
-    //GET INPUTS
-    public String[] inputs(){
-        //Get inputs from user using the FoodRecommend Class
-        input[0] = Double.toString(fr.price);
-        input[1] = fr.spice;
-        input[2] = fr.hot;
-        input[3] = Integer.toString(fr.calorie);
-        input[4] = fr.restrictions;
-        
-        return input;
-    }
     
     //CHECK RESTRICTIONS - called in subclasses
     public Food[] checkFood(FileReader f) throws IOException {
-        
         Food[] recommend1 = new Food[20];
-        Food[] recommendMeal = new Food[20];
         int[] accuracy = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         //Read Menus
         myFiles = f;
-        Scanner s = new Scanner(f);
-        String [][] menu = new String[20][9];
+        Scanner scan = new Scanner(f);
         int row, col;
-        s.nextLine();
+       
+        array = fr.returnUserInput();
         
-        //Read file into an array
-        for(row = 0; row < 20; row++){
-            for(col = 0; col < 20; col++){
-                menu[row][col] = s.next();
+        while(scan.hasNext()){
+            for(row = 0; row < 20; row++){
+                for(col = 0; col < 9; col++){
+                    menu[row][col] = scan.next();
+                }
             }
         }
-        
+
         for(int i = 0 ; i < 20; i++){
             
             //Restrictions is priority- check restriction first
-            if(menu[i][5].equals(input[4])){
+            if(!array[4].contains(menu[i][5])){
                 
                 //Then check price
-                if(Double.parseDouble(input[0])-3 <= Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) <= Double.parseDouble(input[0])+3){
-                    
+                if(Double.parseDouble(array[2])-3.00 <= Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) <= Double.parseDouble(array[2])+3.00){
                     //Add the food that fits restriction and price range into an array Recommend1
-                    recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], Integer.parseInt(menu[i][3]), menu[i][4], menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
+                    recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], menu[i][3], Integer.parseInt(menu[i][4]), menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
                     
                     //Add an accuracy point each time the user's input for the following options is the same as the food's
-                    if(recommend1[i].spicy.equals(input[1])){
+                    if(recommend1[i].spicy.equals(array[1])){
                         accuracy[i]+=2;
                     }            
 
-                    if(recommend1[i].hot.equals(input[2])){
+                    if(recommend1[i].hot.equals(array[2])){
                         accuracy[i]+=2;
                     }            
 
-                    if(Integer.parseInt(input[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(input[3])+100){
+                    if(Integer.parseInt(array[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(array[3])+100){
                         accuracy[i]+=2;
                     }
+                    
                 }
+                
             }
         }
         
         int count = 0;
-        for(int z = 0; z < recommend1.length; z++){
-            
-            //If the highest accuracy score is 6, add all Food items with accuracy score 6 into an array recommendMeal
-            if(getMax(accuracy) == 6){
-                if(accuracy[z] == 6){
-                    recommendMeal[count] = recommend1[z]; 
-                }
-            }
-            
-             //If the highest accuracy score is 4, add all Food items with accuracy score 4 into an array recommendMeal           
-            else if(getMax(accuracy) == 4){
-                if(accuracy[z] == 4){
-                    recommendMeal[count] = recommend1[z];
-                }
-            }
-            
-            //If the highest accuracy score is 2, add all Food items with accuracy score 2 into an array recommendMeal            
-            else if(getMax(accuracy) == 2){
-                if(accuracy[z] == 2){
-                    recommendMeal[count] = recommend1[z];
-                }
-            }
- 
-            //If the highest accuracy score is 0, recommend1 is the same array as recommendMeal
-            else{
-                recommendMeal = recommend1;
+        
+        int max = getMax(accuracy);
+                
+        for (int z = 0; z < recommend1.length; z++) {
+            if(recommend1[z]!=null) {
+                recommendMeal[count] = recommend1[z];
+                count++;
             }
         }
-
+        
         //Returns recommendMeal
         return recommendMeal;
+        
     }
     
     //CALCULATE PERCENTAGE ACCURACY OF THE OUTPUT COMPARED TO USER'S INPUTS
