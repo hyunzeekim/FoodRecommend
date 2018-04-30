@@ -1,65 +1,63 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Desserts Subclass
  */
 package foodrecommend;
 
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- *
- * @author hyunzeekim
- 
- */
 public class Desserts extends Food {
     Food[] options;
     double[] ratings;
     Food[] finalOptions;
+    Food[] finalMeals= new Food[2];
    
-    //Same constructor made for this
-     public Desserts(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
-        super(n,p,r,c,s,h,c1,c2,c3);             
+    public Desserts(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
+        super(n,p,s,h,c,r,c1,c2,c3);             
     }   
     
-    
-    public Food[] checkFood(FileReader f) throws IOException {
+    //Check Desserts
+    public Food[] checkDes(FileReader f) throws IOException {
         int index = 0;
+
+        //Uses checkFood method from Food class to create a new array based off 3 conditions
+        Food[] recommend = new Food[20];
+        recommend = super.checkFood(f);
         
-        FileReader desserts = new FileReader("Desserts.txt");
-        
-        //Uses checkFood method from Food class to create a new array based of 3 conditions
-        for(int i = 0; i < super.checkFood(desserts).length; i++){
-            if(super.checkFood(desserts)[i].condition1.equals("Y") && fr.beverage == true){
-                super.checkFood(desserts)[i] = options[index];
+        //Compare inputs to menu
+        for(int i = 0; i < recommend.length; i++){
+            if(recommend[i].condition1.equals("Y") && fr.des[0].equalsIgnoreCase("Y")){
+                recommend[i] = options[index];
             }
-            else if(super.checkFood(desserts)[i].condition2.equals("Y") && fr.fruit == true){
-                super.checkFood(desserts)[i] = options[index];
+            else if(recommend[i].condition2.equals("Y") && fr.des[1].equalsIgnoreCase("Y")){
+                recommend[i] = options[index];
             }
-            else if(super.checkFood(desserts)[i].condition3.equals("Y") && fr.dessertother == true){
-                super.checkFood(desserts)[i] = options[index];
+            else if(recommend[i].condition3.equals("Y") && fr.des[2].equalsIgnoreCase("Y")){
+               recommend[i] = options[index];
             }
             else{
-                super.checkFood(desserts)[0] = options[index];
+                recommend[0] = options[0];
+                recommend[1] = options[1];
             }
             index++;
         }
-     
+        
+        return options;
+    }
+    
+    //Get rating of food
+    public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
         for (int i = 0; i < options.length; i++){
             ratings[i] = super.calculateRating(options[i]);
             
-            if (options[i].condition1.equals("Y") && fr.beverage == true){
+            if (ff[i].condition1.equals(fr.des[0])) {
                 ratings[i]++;
             }
-            if (options[i].condition2.equals("Y") && fr.fruit == true){
+            if (ff[i].condition2.equals(fr.des[1])){
                 ratings[i]++;
             }
-            if (options[i].condition3.equals("Y") && fr.dessertother == true){
+            if (ff[i].condition3.equals(fr.des[2])){
                 ratings[i]++;
             }
             
@@ -67,17 +65,26 @@ public class Desserts extends Food {
             
         }
         
+        return ratings;
+    }
+    
+    //Get final options
+    public Food[] getFood() throws IOException {
         //Used to find highest ratings, and returns an array of index values
-        int[] x = getTwo(ratings);
+        FileReader desserts = new FileReader("Desserts.txt");
+        Food[] option = checkDes(desserts);        
+        double[] rrating = getRating(option);
+        int[] x = getTwo(rrating);
         
         //Uses index values to create a new Food array with the two best options
         for (int i = 0; i < x.length; i++){
-            finalOptions[x[i]] = options[x[i]];         
+            finalOptions[x[i]] = option[x[i]];         
         }
         
         return finalOptions;
     }
     
+    //Get two
     public static int[] getTwo(double[] array){
       int index1 = 0;
       int index2 = 0;
@@ -96,9 +103,12 @@ public class Desserts extends Food {
     return new int[] { index1, index2 };
     }
     
-  public void printFood(){
-        super.printFood(finalOptions[0], finalOptions[1]);
+    //Get final two outputs
+    public void printDesserts() throws IOException {
+        finalMeals = getFood();
+        super.printFood(finalMeals[0], finalMeals[1]);
     }
- 
+    
+    FoodRecommend fr = new FoodRecommend();
+       
 }
-

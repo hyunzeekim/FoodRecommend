@@ -1,22 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * FoodTester Class
  */
 package foodrecommend;
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- *
- * @author hyunzeekim
- */
 public class FoodRecommend {
     
-    /**
-     * @param args the command line arguments
-     */
-            
     double price;
     String spice;
     String hot;
@@ -34,8 +24,8 @@ public class FoodRecommend {
     String dessertother;
     static String[] inputs = new String[5];
     static String[] app = new String[3];
-    String[] ent = new String[3];
-    String[] des = new String[3];
+    static String[] ent = new String[3];
+    static String[] des = new String[3];
     
     boolean wantAppetizer = false;
     boolean wantEntree = false;
@@ -44,12 +34,13 @@ public class FoodRecommend {
     
     Food [] FinalRecommend = new Food[4];
     
-//The constructor that takes in the input from the user to create a FoodRecommend object
+    //Method that takes in input from user
     public String[] InputData(){
 
         Scanner s = new Scanner(System.in);
         String currentInput;
 
+        //Spicy
         System.out.println("Enter your preference: Spicy or Mild?");
         currentInput = s.next();
         
@@ -60,6 +51,7 @@ public class FoodRecommend {
         spice = currentInput;
         inputs[0] = spice;
         
+        //Hot
         System.out.println("Enter your preference: Hot or Cold?");
         currentInput = s.next();
         while (!currentInput.equalsIgnoreCase("Hot") && !currentInput.equalsIgnoreCase("Cold") ){
@@ -68,13 +60,15 @@ public class FoodRecommend {
         }
         hot = currentInput;
         
-        
+        //Price
         System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
         price = s.nextDouble();
         
+        //Calories
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
         calorie = s.nextInt();
         
+        //Restrictions
         System.out.println("Enter one of the following dietary restrictions (Meat / Peanut / Gluten / None): ");
         System.out.println("If you have more than one, please separate the restriction with a semicolon (e.g. Meat;Peanut)");
         currentInput = s.next();
@@ -87,6 +81,7 @@ public class FoodRecommend {
         }     
         restrictions = currentInput;   
         
+        //Inputs
         inputs[0] = spice;
         inputs[1] = hot;
         inputs[2] = Double.toString(price);
@@ -96,11 +91,12 @@ public class FoodRecommend {
         return inputs;
     }
     
+    //Return User Inputs
     public String[] returnUserInput() {
         return inputs;
     }
     
-//Asking for if theq user want Appetizers/Entree/Dessert or not
+    //Ask user for Meal Type
     public String askForType(){
         String currentInput;
         Scanner s = new Scanner(System.in);
@@ -117,8 +113,7 @@ public class FoodRecommend {
         return currentInput;
     }
 
-// The askForType function calls the AppetizersInput and the other two functions to get 
-    //the unique parameters of different types of food.
+    //APPETIZERS - ask bread / salad / soup
     public String[] AppetizersInput(){
         String currentInput;
         Scanner s = new Scanner(System.in);
@@ -132,6 +127,7 @@ public class FoodRecommend {
             currentInput = s.next();
         }
         
+        //Return "y" or "n"
         if(currentInput.equalsIgnoreCase("Bread")){
             app[0] = "Y";
             app[1] = "N";
@@ -151,6 +147,7 @@ public class FoodRecommend {
         return app;
     }
     
+    //ENTREE - ask meat / seafood / noodles
     public String[] EntreeInput(){
         String currentInput;
         Scanner s = new Scanner(System.in);
@@ -164,6 +161,7 @@ public class FoodRecommend {
             currentInput = s.next();
         }
         
+        //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Meat")){
             ent[0] = "Y";
             ent[1] = "N";
@@ -181,7 +179,9 @@ public class FoodRecommend {
         }
         return ent;
     } 
- public String[] DessertInput(){
+    
+    //DESSERTS - ask beverages / fruits / other
+    public String[] DessertInput(){
         String currentInput;
         Scanner s = new Scanner(System.in);
         
@@ -194,6 +194,7 @@ public class FoodRecommend {
             currentInput = s.next();
         }
         
+        //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Beverage")){
             des[0] = "Y";
             des[1] = "N";
@@ -212,21 +213,25 @@ public class FoodRecommend {
         return des;
     }
  
+    //Call methods from subclasses based on user's desired meal type
     public void printDesiredInput(String want)throws IOException{
         FoodRecommend f = new FoodRecommend();
 
+        //call from appetizer subclass
         if(want.equalsIgnoreCase("Appetizers")){
             f.AppetizersInput();
             Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
             a.printAppetizers();
         }            
         
+        //call from entree subclass
         else if(want.equalsIgnoreCase("Entree")){
             f.EntreeInput();
             Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
             e.printEntree();
         }
         
+        //call from desserts subclass
         else{       
             f.DessertInput();
             Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
