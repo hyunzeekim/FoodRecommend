@@ -692,8 +692,9 @@ public class FoodGui extends javax.swing.JFrame {
             }
         });
     }
+    //Check if the input is integer or double or neither
         public static String checkIntegerDouble(String s){
-        
+    //Making the string array or characters that are not number    
         String [] notNumber = new String[244];
         boolean work = true;
         int n = 0;
@@ -706,15 +707,16 @@ public class FoodGui extends javax.swing.JFrame {
             notNumber[n-11]=Character.toString((char)n);
         }
         
-        
+   //If the input contain any of the character that is not a number, it is not a interger nor a double     
         for(int i = 0;i<notNumber.length;i++){
             if(s.contains(notNumber[i])){
                 work = false;
                 break;
             }
         }
-        
+    //If the string contians only number and "."    
         if(work == true && s.indexOf(".")!=s.length()-1){
+            // if the string contain "."
             if(s.contains(".")){
                 if(s.indexOf(".") >= s.length()-3&&
                         (s.substring(s.indexOf(".")+1).contains("."))==false){
@@ -724,8 +726,10 @@ public class FoodGui extends javax.swing.JFrame {
                     return ("character");
                 }
             } 
+            //If the string does not contain "."
             else return ("integer");
         }
+    //
         else return ("character");
 
     }
