@@ -4,12 +4,15 @@
 package foodrecommend;
 
 public class FoodGui extends javax.swing.JFrame {
+    
+//The variables for all food objects(Taking in as input from the user)
     double price = -1;
     String spice = "n";
     String hot = "n";
     int calorie = -1;
     String [] restrictions;
     
+//The specific variables for the subclasses(Taking in as input from the user)
     boolean bread = false;
     boolean salad = false;
     boolean soup = false;
@@ -26,6 +29,8 @@ public class FoodGui extends javax.swing.JFrame {
     /**
      * Creates new form FoodGui
      */
+    
+//Variables that makes sure that the user has actually made inputs
     boolean typeReady = false;
     boolean preferencesReady = false;
     
@@ -346,27 +351,35 @@ public class FoodGui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//The button preference button is designed to take in the preferences input, including calorie, price and restritions
     private void ButtonPreferenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPreferenceActionPerformed
 
         String currentInput;
         
+        //Taking in the price input
         currentInput = p.getText();
+        //Checking if the format of price input is correct or not
         if(checkIntegerDouble(currentInput).equals("integer")!=true
                 && checkIntegerDouble(currentInput).equals("double")!=true){
             IncorrectInput.setText("Input failed. Price Input format is incorrect.");
         }
         else{
+            //If the price input is correct format, take in input
             price = Double.parseDouble(p.getText());
-
+            
+            
+        //Taking in the calorie input
             currentInput = c.getText();
             if(checkIntegerDouble(currentInput).equals("integer")!=true){
                 IncorrectInput.setText("Input failed. Calorie Input format is incorrect.");
             }
             else{
+       //If the calorie input is correct format, take in input
                 calorie = Integer.parseInt(currentInput);
                 currentInput = r.getText();
-
+                
+                
+       //Taking in the restrictions:
                 if(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
                         &&!currentInput.equalsIgnoreCase("None")&&!
                         currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
@@ -378,6 +391,7 @@ public class FoodGui extends javax.swing.JFrame {
                 {
                     IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
                 }
+       //If the restricion input is correct format, take in input
                 else{
                     String [] threeRestriction = new String[3];
                     String [] twoRestriction = new String[2];
@@ -398,30 +412,42 @@ public class FoodGui extends javax.swing.JFrame {
                         oneRestriciton[0] = currentInput;
                         restrictions = oneRestriciton;
                     }
+                    
+      //All preferences input are of correct format, change preferenceReady and output successful sign
                     preferencesReady = true;
                     IncorrectInput.setText("Successful input");
+                    
                 }
             }
+            
         }
         
     }//GEN-LAST:event_ButtonPreferenceActionPerformed
 
     private void EButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EButtonActionPerformed
         String currentInput;
+        //If you have selected other kinds of food
         if(typeReady == true && wantEntree == false){
             IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
                     + "Please reset the food types before entering.");
         }
+        
+        //If you have not selected other kinds of food
         else{
             wantEntree = true;
             currentType.setText("Current type: Entree");
 
+            // Get specific food type from the user
             currentInput = EntreeType.getText();
+            
+            //If the food type is of incorrect format
             if((currentInput.equalsIgnoreCase("meat")||currentInput.equalsIgnoreCase("seafood")||
                     currentInput.equalsIgnoreCase("noudles"))!= true){
                 IncorrectInput.setText("Incorrect format. Please retype:"
                         + "meat/seafood/noodles");
             }
+            
+            //Take in correct format food type
             else{
                 typeReady = true;
                 IncorrectInput.setText("Successful input ("+currentInput+")");
@@ -441,6 +467,7 @@ public class FoodGui extends javax.swing.JFrame {
     private void AButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AButtonActionPerformed
         // TODO add your handling code here:
         String currentInput;
+        //If you have selected other kinds of food
         if(typeReady == true && wantAppetizer == false){
             IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
                     + "Please reset the food types before entering.");
@@ -449,14 +476,18 @@ public class FoodGui extends javax.swing.JFrame {
             wantAppetizer = true;
 ;
             currentType.setText("Current type: Appetizers");
-
+            
+            // Get specific food type from the user
             currentInput = AppetizerType.getText();
-            System.out.println(currentInput);
+            
+            //If the food type is of incorrect format
             if((currentInput.equalsIgnoreCase("Salad")||currentInput.equalsIgnoreCase("Bread")||
                     currentInput.equalsIgnoreCase("Soup"))!= true){
                 IncorrectInput.setText("Incorrect format. Please retype:"
                         + "salad/bread/soup");
             }
+            
+            //Take in correct format food type
             else{
                     typeReady = true;
                     IncorrectInput.setText("Successful input ("+currentInput+")");
@@ -475,6 +506,8 @@ public class FoodGui extends javax.swing.JFrame {
 
     private void DButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DButtonActionPerformed
         String currentInput;
+        
+        //If you have selected other kinds of food
         if(typeReady == true && wantDessert == false){
             IncorrectInput.setText("Incorrect format. You have already selected a type of food.\n"
                     + "Please reset the food types before entering.");
@@ -483,12 +516,17 @@ public class FoodGui extends javax.swing.JFrame {
             wantDessert = true;
             
             currentType.setText("Current type: Desserts");
-
+            
+            // Get specific food type from the user
             currentInput = DessertType.getText();
+            
+            //If the food type is of incorrect format
             if((currentInput.equalsIgnoreCase("beverage")||currentInput.equalsIgnoreCase("fruit")||
                     currentInput.equalsIgnoreCase("other"))!= true){
                 IncorrectInput.setText("Incorrect format. Please retype: beverage/fruit/other");
             }
+            
+            //Take in correct format food type
             else{
                 typeReady = true;
                 IncorrectInput.setText("Successful input ("+currentInput+")");
@@ -501,7 +539,7 @@ public class FoodGui extends javax.swing.JFrame {
                 }
                 else{
                     dessertother = true;
-                }        // TODO add your handling code here:
+                }
                 typeReady = true;
             }
         }
@@ -522,7 +560,7 @@ public class FoodGui extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_readyButtonActionPerformed
-
+//Code for if the user want the food to be hot or not
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
 
         if(hot.equals("y")){
@@ -532,7 +570,7 @@ public class FoodGui extends javax.swing.JFrame {
             hot = "y";
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
-
+//Code for if the user want the food to be spicy or not
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
         if(spice.equals("y")){
@@ -555,6 +593,7 @@ public class FoodGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rActionPerformed
 
+    // The follwing three methods are for the user attempt to enter the food type before selecting the meal type
     private void AppetizerTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetizerTypeActionPerformed
         // TODO add your handling code here:
         if (wantAppetizer ==  false){
@@ -578,9 +617,10 @@ public class FoodGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_currentTypeActionPerformed
 
+    //Reset the meal type and food type
     private void ResetTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTypeActionPerformed
-        // TODO add your handling code here:
-               currentType.setText("Current type: None");
+
+       currentType.setText("Current type: None");
        wantAppetizer = false;
        AppetizerType.setText("Appetizer type");
        wantEntree = false;
@@ -602,7 +642,8 @@ public class FoodGui extends javax.swing.JFrame {
        
        IncorrectInput.setText("");
     }//GEN-LAST:event_ResetTypeActionPerformed
-
+    
+    //Reset the preferences
     private void ResetPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetPActionPerformed
         // TODO add your handling code here:
         price = -1;
