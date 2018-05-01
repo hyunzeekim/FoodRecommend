@@ -274,11 +274,11 @@ public class FoodGui extends javax.swing.JFrame {
                                 .add(jRadioButton1)
                                 .add(18, 18, 18)
                                 .add(jRadioButton2)
-                                .add(25, 25, 25)
-                                .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 33, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
+                                .add(29, 29, 29)
+                                .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
                                 .add(ButtonPreference))
@@ -352,7 +352,8 @@ public class FoodGui extends javax.swing.JFrame {
         String currentInput;
         
         currentInput = p.getText();
-        if(checkIntegerDouble(currentInput).equals("integer")!=true){
+        if(checkIntegerDouble(currentInput).equals("integer")!=true
+                && checkIntegerDouble(currentInput).equals("double")!=true){
             IncorrectInput.setText("Input failed. Price Input format is incorrect.");
         }
         else{
@@ -672,16 +673,19 @@ public class FoodGui extends javax.swing.JFrame {
             }
         }
         
-        if(work == true){
+        if(work == true && s.indexOf(".")!=s.length()-1){
             if(s.contains(".")){
-                if(s.indexOf(".")<s.length()-3 
-                        && (s.substring(s.indexOf(".")).contains("."))==false)
-                    return("double");
-                else return "character";
+                if(s.indexOf(".") >= s.length()-3&&
+                        (s.substring(s.indexOf(".")+1).contains("."))==false){
+                    return ("double");
+                }
+                else{
+                    return ("character");
+                }
             } 
-            else return("integer");
+            else return ("integer");
         }
-        else return("character");
+        else return ("character");
 
     }
     public static boolean ToBoolean(String decision){
