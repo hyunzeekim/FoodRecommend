@@ -1,5 +1,5 @@
 ChocolateSundae 5.00	Mild	Cold	700	None	Y	N	N
-Red Wine	10.00	Mild	Cold	300	None	Y	N	N	
+RedWine	10.00	Mild	Cold	300	None	Y	N	N	
 BananaSmoothie	5.00	Mild	Cold	300	None	Y	N	N	
 HotChocolate	3.50	Mild	Hot	400	None	Y	N	N
 MochaLatte	3.00	Mild	Hot	300	None	Y	N	N
