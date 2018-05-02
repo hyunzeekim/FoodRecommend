@@ -7,13 +7,13 @@ public class FoodGui extends javax.swing.JFrame {
     
 //The variables for all food objects(Taking in as input from the user)
     double price = -1;
-    String spice = "n";
-    String hot = "n";
+    String spice = "Mild";
+    String hot = "Cold";
     int calorie = -1;
-    String [] restrictions;
+    String restrictions;
     
 //The specific variables for the subclasses(Taking in as input from the user)
-    boolean bread = false;
+/*    boolean bread = false;
     boolean salad = false;
     boolean soup = false;
     boolean meat = false;
@@ -21,7 +21,21 @@ public class FoodGui extends javax.swing.JFrame {
     boolean noodles = false;
     boolean beverage = false;
     boolean fruit = false;
-    boolean dessertother = false;
+    boolean dessertother = false;*/
+    
+    String bread;
+    String salad;
+    String soup;
+    String meat;
+    String seafood;
+    String noodles;
+    String beverage;
+    String fruit;
+    String dessertother;
+    
+    String[] app = {"N","N","N"};;
+    String[] ent = {"N","N","N"};
+    String[] des = {"N","N","N"};
     
     boolean wantAppetizer = false;
     boolean wantEntree = false;
@@ -69,8 +83,8 @@ public class FoodGui extends javax.swing.JFrame {
         readyButton = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         FinalOutput = new javax.swing.JTextArea();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        SpiceButton = new javax.swing.JRadioButton();
+        hotButton = new javax.swing.JRadioButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         currentType = new javax.swing.JTextField();
@@ -82,6 +96,7 @@ public class FoodGui extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         ResetType = new javax.swing.JButton();
         ResetP = new javax.swing.JButton();
+        ClearAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,17 +196,17 @@ public class FoodGui extends javax.swing.JFrame {
         FinalOutput.setRows(5);
         jScrollPane4.setViewportView(FinalOutput);
 
-        jRadioButton1.setText("Spicy");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        SpiceButton.setText("Spicy");
+        SpiceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                SpiceButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Hot");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        hotButton.setText("Hot");
+        hotButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                hotButtonActionPerformed(evt);
             }
         });
 
@@ -239,19 +254,18 @@ public class FoodGui extends javax.swing.JFrame {
             }
         });
 
+        ClearAll.setText("Clear All Inputs");
+        ClearAll.setToolTipText("");
+        ClearAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearAllActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(readyButton)
-                        .add(181, 181, 181))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(ResetP)
-                        .add(136, 136, 136))))
             .add(layout.createSequentialGroup()
                 .add(35, 35, 35)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -285,9 +299,9 @@ public class FoodGui extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 490, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(layout.createSequentialGroup()
-                                .add(jRadioButton1)
+                                .add(SpiceButton)
                                 .add(18, 18, 18)
-                                .add(jRadioButton2)
+                                .add(hotButton)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(29, 29, 29)
@@ -303,6 +317,18 @@ public class FoodGui extends javax.swing.JFrame {
                         .add(jScrollPane3))
                     .add(jScrollPane1))
                 .addContainerGap())
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(readyButton)
+                        .add(181, 181, 181))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(ResetP)
+                        .add(136, 136, 136))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(ClearAll)
+                        .add(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -313,8 +339,8 @@ public class FoodGui extends javax.swing.JFrame {
                 .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jRadioButton1)
-                    .add(jRadioButton2)
+                    .add(SpiceButton)
+                    .add(hotButton)
                     .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -347,7 +373,8 @@ public class FoodGui extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 92, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel6))
-                .add(32, 32, 32))
+                .add(3, 3, 3)
+                .add(ClearAll))
         );
 
         pack();
@@ -394,30 +421,11 @@ public class FoodGui extends javax.swing.JFrame {
                 }
        //If the restricion input is correct format, take in input
                 else{
-                    String [] threeRestriction = new String[3];
-                    String [] twoRestriction = new String[2];
-                    String [] oneRestriciton = new String[1];
-
-                    if(currentInput.length()>8){
-                        threeRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
-                        threeRestriction[1]=currentInput.substring(currentInput.indexOf(",")+1,currentInput.indexOf(",",currentInput.indexOf(",")));
-                        threeRestriction[2]=currentInput.substring(currentInput.indexOf(",",currentInput.indexOf(",")),currentInput.length()-1);
-                        restrictions = threeRestriction;
-                    }
-                    else if(currentInput.length()>6){
-                        twoRestriction[0]=currentInput.substring(0,currentInput.indexOf(",")-1);
-                        twoRestriction[1] = currentInput.substring(currentInput.indexOf(",")-1);
-                        restrictions = threeRestriction;
-                    }
-                    else{
-                        oneRestriciton[0] = currentInput;
-                        restrictions = oneRestriciton;
-                    }
+                    restrictions = currentInput;
                     
       //All preferences input are of correct format, change preferenceReady and output successful sign
                     preferencesReady = true;
-                    IncorrectInput.setText("Successful input");
-                    
+                    IncorrectInput.setText("Successful input"); 
                 }
             }
             
@@ -450,16 +458,27 @@ public class FoodGui extends javax.swing.JFrame {
             
             //Take in correct format food type
             else{
+                
                 typeReady = true;
                 IncorrectInput.setText("Successful input ("+currentInput+")");
-                if(currentInput.equalsIgnoreCase("meat")){
-                    meat = true;
+                
+                if(currentInput.equalsIgnoreCase("Meat")){
+                    ent[0] = "Y";
+                    ent[1] = "N";
+                    ent[2] = "N";   
+                    meat = "meat";
                 }
-                else if(currentInput.equals("seafood")){
-                    seafood = true;
+                else if(currentInput.equalsIgnoreCase("Seafood")){
+                    ent[0] = "N";
+                    ent[1] = "Y";
+                    ent[2] = "N";   
+                    seafood = "seafood";
                 }
-                else{
-                    noodles = true;
+                else if(currentInput.equalsIgnoreCase("Noodles")){
+                    ent[0] = "N";
+                    ent[1] = "N";
+                    ent[2] = "Y";     
+                    noodles = "noodles";
                 }
             } 
         }
@@ -492,15 +511,25 @@ public class FoodGui extends javax.swing.JFrame {
             else{
                     typeReady = true;
                     IncorrectInput.setText("Successful input ("+currentInput+")");
-                    if(currentInput.equalsIgnoreCase("salad")){
-                        salad = true;
+                    
+                    if(currentInput.equalsIgnoreCase("Bread")){
+                        app[0] = "Y";
+                        app[1] = "N";
+                        app[2] = "N";
+                        bread = "bread";
                     }
-                    else if(currentInput.equalsIgnoreCase("bread")){
-                        bread = true;
+                    else if(currentInput.equalsIgnoreCase("Salad")){
+                        app[0] = "N";
+                        app[1] = "Y";
+                        app[2] = "N";     
+                        salad = "salad";
                     }
-                    else{
-                        soup = true;
-                } 
+                    else if(currentInput.equalsIgnoreCase("Soup")){
+                        app[0] = "N";
+                        app[1] = "N";
+                        app[2] = "Y";
+                        soup = "soup";
+                    } 
             }
         }
     }//GEN-LAST:event_AButtonActionPerformed
@@ -531,24 +560,47 @@ public class FoodGui extends javax.swing.JFrame {
             else{
                 typeReady = true;
                 IncorrectInput.setText("Successful input ("+currentInput+")");
-                
-                if(currentInput.equalsIgnoreCase("beverage")){
-                    beverage = true;
+                if(currentInput.equalsIgnoreCase("Beverage")){
+                    des[0] = "Y";
+                    des[1] = "N";
+                    des[2] = "N";   
+                    beverage = "beverage";
                 }
-                else if(currentInput.equals("fruit")){
-                    fruit = true;
+                else if(currentInput.equalsIgnoreCase("Fruit")){
+                    des[0] = "N";
+                    des[1] = "Y";
+                    des[2] = "N";
+                    fruit = "fruit";
                 }
-                else{
-                    dessertother = true;
+                else if(currentInput.equalsIgnoreCase("Other")){
+                    des[0] = "N";
+                    des[1] = "N";
+                    des[2] = "Y"; 
+                    dessertother = "other";
                 }
-                typeReady = true;
             }
         }
     }//GEN-LAST:event_DButtonActionPerformed
 
     private void readyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readyButtonActionPerformed
         if(typeReady == true && preferencesReady == true){
-            //Run main program and print to the output box
+            //Inpputs
+            //The preferences Inputs in an array that is the same format as foodRecommend
+            String [] inputs = new String[5];
+            inputs[0] = spice;
+            inputs[1] = hot;
+            inputs[2] = Double.toString(price);
+            inputs[3] = Integer.toString(calorie);
+            inputs[4] = restrictions;
+            //Meal type input in the same format as foodRecommend
+            String desired = askForType();
+            //For the food type inpput, just directly write app and salad etc, they are global variables
+           
+            //Output
+            //Instead of f.printDesiredInput(desired), return a string and print the string 
+            //in the output the result in the FinalOutput.setText()
+            
+            FinalOutput.setText("");
         }
         else if (typeReady == false && preferencesReady== false){
             IncorrectInput.setText("You have not entered what type of food you want,\n nor your preferences");
@@ -562,25 +614,25 @@ public class FoodGui extends javax.swing.JFrame {
         
     }//GEN-LAST:event_readyButtonActionPerformed
 //Code for if the user want the food to be hot or not
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void hotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotButtonActionPerformed
 
-        if(hot.equals("y")){
-            hot = "n";
+        if(hot.equals("Cold")){
+            hot = "Hot";
         }
         else{
-            hot = "y";
+            hot = "Cold";
         }
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_hotButtonActionPerformed
 //Code for if the user want the food to be spicy or not
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void SpiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpiceButtonActionPerformed
         // TODO add your handling code here:
-        if(spice.equals("y")){
-            spice = "n";
+        if(spice.equals("Mild")){
+            spice = "Hot";
         }
         else{
-            spice = "y";
+            spice = "Mild";
         }
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_SpiceButtonActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
         // TODO add your handling code here:
@@ -619,6 +671,7 @@ public class FoodGui extends javax.swing.JFrame {
     }//GEN-LAST:event_currentTypeActionPerformed
 
     //Reset the meal type and food type
+    @SuppressWarnings("empty-statement")
     private void ResetTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTypeActionPerformed
 
        currentType.setText("Current type: None");
@@ -631,17 +684,23 @@ public class FoodGui extends javax.swing.JFrame {
        
        typeReady = false;
        
-       bread = false;
-       salad = false;
-       soup = false;
-       meat = false;
-       seafood = false;
-       noodles = false;
-       beverage = false;
-       fruit = false;
-       dessertother = false;
+       bread = "";
+       salad = "";
+       soup = "";
+       meat = "";
+       seafood = "";
+       noodles = "";
+       beverage = "";
+       fruit = "";
+       dessertother = "";
        
+       for(int n = 0; n<3;n++){
+           app[n]="N";
+           ent[n]="N";
+           des[n]="N";         
+       }
        IncorrectInput.setText("");
+       
     }//GEN-LAST:event_ResetTypeActionPerformed
     
     //Reset the preferences
@@ -649,8 +708,7 @@ public class FoodGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         price = -1;
         calorie = -1;
-        String[] a = {"none"};
-        restrictions = a;
+        restrictions = "none";
         preferencesReady = false;
         
         p.setText("Price");
@@ -658,6 +716,48 @@ public class FoodGui extends javax.swing.JFrame {
         r.setText("Restrictions");
         IncorrectInput.setText("");
     }//GEN-LAST:event_ResetPActionPerformed
+
+    private void ClearAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearAllActionPerformed
+        // TODO add your handling code here:
+        FinalOutput.setText("");
+        
+        price = -1;
+        calorie = -1;
+        restrictions = "none";
+        preferencesReady = false;
+        
+        p.setText("Price");
+        c.setText("Calorie");
+        r.setText("Restrictions");
+        IncorrectInput.setText("");
+        
+       currentType.setText("Current type: None");
+       wantAppetizer = false;
+       AppetizerType.setText("Appetizer type");
+       wantEntree = false;
+       EntreeType.setText("Entree type");
+       wantDessert = false;
+       DessertType.setText("Dessert type");
+       
+       typeReady = false;
+       
+       bread = "";
+       salad = "";
+       soup = "";
+       meat = "";
+       seafood = "";
+       noodles = "";
+       beverage = "";
+       fruit = "";
+       dessertother = "";
+       
+       for(int n = 0; n<3;n++){
+           app[n]="N";
+           ent[n]="N";
+           des[n]="N";         
+       }
+       IncorrectInput.setText("");
+    }//GEN-LAST:event_ClearAllActionPerformed
 
     /**
      * @param args the command line arguments
@@ -694,7 +794,7 @@ public class FoodGui extends javax.swing.JFrame {
         });
     }
     //Check if the input is integer or double or neither
-        public static String checkIntegerDouble(String s){
+    public static String checkIntegerDouble(String s){
     //Making the string array or characters that are not number    
         String [] notNumber = new String[244];
         boolean work = true;
@@ -734,7 +834,14 @@ public class FoodGui extends javax.swing.JFrame {
         else return ("character");
 
     }
-    public static boolean ToBoolean(String decision){
+
+    public String askForType(){
+        if(wantAppetizer == true) return "Appetizer";
+        else if (wantEntree == true) return "Entree";
+        else return "Desserts";
+    }
+    
+/*    public static boolean ToBoolean(String decision){
         if(decision.equalsIgnoreCase("Y")){
             return true;
         }
@@ -745,11 +852,12 @@ public class FoodGui extends javax.swing.JFrame {
             return true;
         }
         else return false;
-    }
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AButton;
     private javax.swing.JTextField AppetizerType;
     private javax.swing.JButton ButtonPreference;
+    private javax.swing.JButton ClearAll;
     private javax.swing.JButton DButton;
     private javax.swing.JTextField DessertType;
     private javax.swing.JButton EButton;
@@ -758,6 +866,7 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.JTextArea IncorrectInput;
     private javax.swing.JButton ResetP;
     private javax.swing.JButton ResetType;
+    private javax.swing.JRadioButton SpiceButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -765,12 +874,11 @@ public class FoodGui extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JTextField c;
     private javax.swing.JTextField currentType;
+    private javax.swing.JRadioButton hotButton;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

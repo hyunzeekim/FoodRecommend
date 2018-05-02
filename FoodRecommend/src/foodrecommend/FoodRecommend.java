@@ -22,6 +22,7 @@ public class FoodRecommend {
     String beverage;
     String fruit;
     String dessertother;
+    
     static String[] inputs = new String[5];
     static String[] app = new String[3];
     static String[] ent = new String[3];
