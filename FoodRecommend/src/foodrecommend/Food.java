@@ -24,8 +24,7 @@ public class Food {
     String[] input = new String[5];
     String [] in = new String[5];
     String[] array = new String[5];
-    String [][] menu = new String[20][9];
-    Food [] recommendMeal = new Food[20];
+    Food[] menu = new Food[20];
     FileReader myFiles;
     
     //FOOD CONSTRUCTOR
@@ -45,6 +44,7 @@ public class Food {
     //CHECK RESTRICTIONS - called in subclasses
     public Food[] checkFood(FileReader f) throws IOException {
         Food[] recommend1 = new Food[20];
+        Food[] recommendMeal = new Food[20];
         int[] accuracy = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         //Read Menus
@@ -54,61 +54,67 @@ public class Food {
        
         array = fr.returnUserInput();
         
-        while(scan.hasNext()){
-            for(row = 0; row < 20; row++){
-                for(col = 0; col < 9; col++){
-                    menu[row][col] = scan.next();
-                }
+        while(scan.hasNextLine()) {
+           for (row = 0; row < 20; row++) {
+                String name = scan.next();
+                double price = Double.parseDouble(scan.next());
+                String spcy = scan.next();
+                String hot = scan.next();
+                int cal = Integer.parseInt(scan.next());
+                String res = scan.next();
+                String cond1 = scan.next();
+                String cond2 = scan.next();
+                String cond3 = scan.next();
+                menu[row] = new Food(name, price, spcy, hot, cal, res, cond1, cond2, cond3);    
             }
         }
 
         for(int i = 0 ; i < 20; i++){
             
             //Restrictions is priority- check restriction first
-            if(!array[4].contains(menu[i][5])){
+            if(!array[4].contains(menu[i].restrictions)){
                 
                 //Then check price
-                if(Double.parseDouble(array[2])-3.00 <= Double.parseDouble(menu[i][1]) && Double.parseDouble(menu[i][1]) <= Double.parseDouble(array[2])+3.00){
+                if(Double.parseDouble(array[2])-3.00 <= menu[i].price && menu[i].price <= Double.parseDouble(array[2])+3.00){
                     //Add the food that fits restriction and price range into an array Recommend1
-                    recommend1[i] = new Food(menu[i][0], Double.parseDouble(menu[i][1]), menu[i][2], menu[i][3], Integer.parseInt(menu[i][4]), menu[i][5], menu[i][6], menu[i][7], menu[i][8]);
-                    
+                    recommend1[i] = menu[i];
+                   
                     //Add an accuracy point each time the user's input for the following options is the same as the food's
-                    if(recommend1[i].spicy.equals(array[1])){
+                    if((recommend1[i].spicy).equalsIgnoreCase(array[0])){
                         accuracy[i]+=2;
                     }            
 
-                    if(recommend1[i].hot.equals(array[2])){
+                    if((recommend1[i].hot).equalsIgnoreCase(array[1])){
                         accuracy[i]+=2;
                     }            
 
-                    if(Integer.parseInt(array[3])-100 <= recommend1[i].calorie && recommend1[i].calorie >= Integer.parseInt(array[3])+100){
+                    if(Integer.parseInt(array[3])-100 <= recommend1[i].calorie || recommend1[i].calorie >= Integer.parseInt(array[3])+100){
                         accuracy[i]+=2;
                     }
-                    
+                                                
                 }
-                
+                                
             }
+
         }
+        
         
         int count = 0;
         
         int max = getMax(accuracy);
                 
         for (int z = 0; z < recommend1.length; z++) {
-            if(recommend1[z]!=null) {
+            if(accuracy[z] == max) {
                 recommendMeal[count] = recommend1[z];
                 count++;
             }
         }
-        
-        //Returns recommendMeal
         return recommendMeal;
-        
     }
     
     //CALCULATE PERCENTAGE ACCURACY OF THE OUTPUT COMPARED TO USER'S INPUTS
     public double calculateRating(Food f){
-        if(Double.parseDouble(input[0]) == price){
+        if(Double.parseDouble(input[0]) == f.price){
             rating+=2;
         }
         
@@ -124,7 +130,7 @@ public class Food {
             rating+=2;
         }        
         
-        if(Integer.parseInt(input[3]) == calorie){
+        if(Integer.parseInt(input[3]) == f.calorie){
             rating+=2;
         }
         

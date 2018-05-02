@@ -8,11 +8,9 @@ import java.io.IOException;
 
 public class Appetizers extends Food {
     Food[] options = new Food[20];
-    Food[] option = new Food[20];
-    double[] ratings = new double[20];
+    double[] ratings = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};;
     Food[] finalOptions = new Food[20];
     Food[] finalMeals= new Food[2];
-    Food [] recommend = new Food[20]; 
    
     //Same constructor made for this
      public Appetizers(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
@@ -23,25 +21,27 @@ public class Appetizers extends Food {
     public Food[] checkApp(FileReader f) throws IOException {
         int index = 0;
 
-        //Uses checkFood method from Food class to create a new array based off 3 conditions
+        //Uses checkFood method from Food class to create a new array based of 3 conditions
+        Food[] recommend = new Food[20];
+        recommend = super.checkFood(f);
         
         //Compare inputs to menu
         for(int i = 0; i < recommend.length; i++){
-            recommend[i] = super.checkFood(f)[i];
-            
-            if(recommend[i].condition1.equals("Y") && fr.app[0].equalsIgnoreCase("Y")){
-                options[index] = recommend[i];
+            if (recommend[i] != null) {
+                if(recommend[i].condition1.equals("Y") && fr.app[0].equalsIgnoreCase("Y")){
+                    options[index] = recommend[i];
+                }
+                else if(recommend[i].condition2.equals("Y") && fr.app[1].equalsIgnoreCase("Y")){
+                    options[index] = recommend[i];
+                }
+                else if(recommend[i].condition3.equals("Y") && fr.app[2].equalsIgnoreCase("Y")){
+                    options[index] = recommend[i];
+                }
+                else{
+                    options[0] = recommend[0];
+                    options[1] = recommend[1];
+                }
             }
-            else if(recommend[i].condition2.equals("Y") && fr.app[1].equalsIgnoreCase("Y")){
-                options[index] = recommend[i];
-            }
-            else if(recommend[i].condition3.equals("Y") && fr.app[2].equalsIgnoreCase("Y")){
-               options[index] = recommend[i];
-            }
-            /*else{
-                recommend[0] = options[0];
-                recommend[1] = options[1];
-            }*/
             index++;
         }
         return options;
@@ -50,21 +50,29 @@ public class Appetizers extends Food {
     //Get rating of food
     public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
-        for (int i = 0; i < options.length; i++){
-            ratings[i] = super.calculateRating(options[i]);
-            
-            if (ff[i].condition1.equals(fr.app[0])){
-                ratings[i]++;
+        if (ff != null) {
+            for (int i = 0; i < ff.length; i++){
+                if (ff[i] != null) {
+                    ratings[i] = super.calculateRating(ff[i]);
+               
+                    if (fr.bread != null) {
+                        if (ff[i].condition1.equals("Y") && fr.bread.equalsIgnoreCase("Bread")){
+                            ratings[i]++;
+                        }
+                    }
+                    if (fr.salad != null) {
+                        if (ff[i].condition2.equals("Y") && fr.salad.equalsIgnoreCase("Salad")){
+                            ratings[i]++;
+                        }
+                    }
+                    if (fr.soup != null) {
+                        if (ff[i].condition3.equals("Y") && fr.soup.equalsIgnoreCase("Soup")){
+                            ratings[i]++;
+                        }
+                    }
+                    ratings[i] = (ratings[i]/13 * 100); 
+                }            
             }
-            if (ff[i].condition2.equals(fr.app[1])){
-                ratings[i]++;
-            }
-            if (ff[i].condition3.equals(fr.app[2])){
-                ratings[i]++;
-            }
-            
-            ratings[i] = (ratings[i]/13 * 100);
-            
         }
         
         return ratings;
@@ -75,7 +83,7 @@ public class Appetizers extends Food {
         
         //Used to find highest ratings, and returns an array of index values
         FileReader appetizers = new FileReader("Appetizers.txt");
-        option = checkApp(appetizers);        
+        Food[] option = checkApp(appetizers); 
         double[] rrating = getRating(option);
         int[] x = getTwo(rrating);
         

@@ -70,18 +70,20 @@ public class FoodRecommend {
         hot = currentInput;
         
         //Price
-        currentInput = s.next();
         System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
-        while(checkIntegerDouble(currentInput).equals("integer")!=true&&
+        currentInput = s.next();
+        if(checkIntegerDouble(currentInput).equals("integer")!=true&&
                 checkIntegerDouble(currentInput).equals("double")!=true){
-            System.out.println("Please Enter again");
+            System.out.println("Please enter again in a number form:");
+            currentInput = s.next();
         }
         price = Double.parseDouble(currentInput);
         
-        currentInput = s.next();
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
-        while(checkIntegerDouble(currentInput).equals("integer")!=true){
-            System.out.println("Please Enter again");
+        currentInput = s.next();
+        if(checkIntegerDouble(currentInput).equals("integer")!=true){
+            System.out.println("Please enter again in a number form");
+            currentInput = s.next();
         }
         calorie = Integer.parseInt(currentInput);
         
