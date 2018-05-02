@@ -154,16 +154,19 @@ public class FoodRecommend {
             app[0] = "Y";
             app[1] = "N";
             app[2] = "N";
+            bread = "bread";
         }
         else if(currentInput.equalsIgnoreCase("Salad")){
             app[0] = "N";
             app[1] = "Y";
-            app[2] = "N";        
+            app[2] = "N";     
+            salad = "salad";
         }
         else if(currentInput.equalsIgnoreCase("Soup")){
             app[0] = "N";
             app[1] = "N";
             app[2] = "Y";
+            soup = "soup";
         }
         
         return app;
@@ -187,17 +190,20 @@ public class FoodRecommend {
         if(currentInput.equalsIgnoreCase("Meat")){
             ent[0] = "Y";
             ent[1] = "N";
-            ent[2] = "N";        
+            ent[2] = "N";   
+            meat = "meat";
         }
         else if(currentInput.equalsIgnoreCase("Seafood")){
             ent[0] = "N";
             ent[1] = "Y";
-            ent[2] = "N";           
+            ent[2] = "N";   
+            seafood = "seafood";
         }
         else if(currentInput.equalsIgnoreCase("Noodles")){
             ent[0] = "N";
             ent[1] = "N";
-            ent[2] = "Y";           
+            ent[2] = "Y";     
+            noodles = "noodles";
         }
         return ent;
     } 
@@ -220,53 +226,22 @@ public class FoodRecommend {
         if(currentInput.equalsIgnoreCase("Beverage")){
             des[0] = "Y";
             des[1] = "N";
-            des[2] = "N";           
+            des[2] = "N";   
+            beverage = "beverage";
         }
         else if(currentInput.equalsIgnoreCase("Fruit")){
             des[0] = "N";
             des[1] = "Y";
-            des[2] = "N";          
+            des[2] = "N";
+            fruit = "fruit";
         }
         else if(currentInput.equalsIgnoreCase("Other")){
             des[0] = "N";
             des[1] = "N";
-            des[2] = "Y";          
+            des[2] = "Y"; 
+            dessertother = "other";
         }
         return des;
-    }
- 
-    //Call methods from subclasses based on user's desired meal type
-    public void printDesiredInput(String want)throws IOException{
-        FoodRecommend f = new FoodRecommend();
-
-        //call from appetizer subclass
-        if(want.equalsIgnoreCase("Appetizers")){
-            f.AppetizersInput();
-            Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            a.printAppetizers();
-        }            
-        
-        //call from entree subclass
-        else if(want.equalsIgnoreCase("Entree")){
-            f.EntreeInput();
-            Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            e.printEntree();
-        }
-        
-        //call from desserts subclass
-        else{       
-            f.DessertInput();
-            Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            d.printDesserts();
-        }    
-        
-    }
-    //Main 
-    public static void main(String[] args) throws IOException { 
-        FoodRecommend f = new FoodRecommend();
-        f.InputData();
-        String desired = f.askForType();
-        f.printDesiredInput(desired);
     }
     public static String checkIntegerDouble(String s){
         
@@ -302,4 +277,39 @@ public class FoodRecommend {
         else return("character");
 
     }
+    
+    //Call methods from subclasses based on user's desired meal type
+    public void printDesiredInput(String want)throws IOException{
+        FoodRecommend f = new FoodRecommend();
+
+        //call from appetizer subclass
+        if(want.equalsIgnoreCase("Appetizers")){
+            f.AppetizersInput();
+            Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            a.printAppetizers();
+        }            
+        
+        //call from entree subclass
+        else if(want.equalsIgnoreCase("Entree")){
+            f.EntreeInput();
+            Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            e.printEntree();
+        }
+        
+        //call from desserts subclass
+        else{       
+            f.DessertInput();
+            Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+            d.printDesserts();
+        }    
+        
+    }
+    //Main 
+    public static void main(String[] args) throws IOException { 
+        FoodRecommend f = new FoodRecommend();
+        f.InputData();
+        String desired = f.askForType();
+        f.printDesiredInput(desired);
+    }
+    
 }
