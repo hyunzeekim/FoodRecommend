@@ -35,8 +35,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="readyButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="ResetP" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" alignment="0" min="-2" pref="582" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
@@ -84,29 +97,17 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="ButtonPreference" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
-                      <Component id="jScrollPane1" alignment="1" min="-2" pref="582" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="readyButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="ResetP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,7 +115,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="82" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="71" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane6" min="-2" pref="184" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -129,7 +130,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="ResetP" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="113" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="124" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="AButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -259,7 +260,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="4. Decide what type of meal you would like (Appetizers/Entree/Desserts).&#xa;&#xa;5. Enter the type of food that you would like and click on the meal type button.&#xa;&#x9;For appetizers, the food types are bread / salad / soup.&#xa;&#x9;For entree, the food types are meat / seafood / noodles.&#xa;&#x9;For dessert, ythe food types are beverages / fruits / other."/>
+            <Property name="text" type="java.lang.String" value="4. Decide what type of meal you would like (Appetizers/Entree/Desserts).&#xa;&#xa;5. Enter the type of food that you would like and click on that corresponding meal &#xa;    type button. (e.g. choose bread then click Appetizers)&#xa;&#x9;For appetizers, the food types are bread / salad / soup.&#xa;&#x9;For entree, the food types are meat / seafood / noodles.&#xa;&#x9;For dessert, ythe food types are beverages / fruits / other."/>
           </Properties>
         </Component>
       </SubComponents>

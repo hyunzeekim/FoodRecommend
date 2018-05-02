@@ -161,7 +161,7 @@ public class FoodGui extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("4. Decide what type of meal you would like (Appetizers/Entree/Desserts).\n\n5. Enter the type of food that you would like and click on the meal type button.\n\tFor appetizers, the food types are bread / salad / soup.\n\tFor entree, the food types are meat / seafood / noodles.\n\tFor dessert, ythe food types are beverages / fruits / other.");
+        jTextArea1.setText("4. Decide what type of meal you would like (Appetizers/Entree/Desserts).\n\n5. Enter the type of food that you would like and click on that corresponding meal \n    type button. (e.g. choose bread then click Appetizers)\n\tFor appetizers, the food types are bread / salad / soup.\n\tFor entree, the food types are meat / seafood / noodles.\n\tFor dessert, ythe food types are beverages / fruits / other.");
         jScrollPane1.setViewportView(jTextArea1);
 
         IncorrectInput.setEditable(false);
@@ -243,6 +243,15 @@ public class FoodGui extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(readyButton)
+                        .add(181, 181, 181))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(ResetP)
+                        .add(136, 136, 136))))
             .add(layout.createSequentialGroup()
                 .add(35, 35, 35)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -286,28 +295,20 @@ public class FoodGui extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(ButtonPreference))
-                            .add(layout.createSequentialGroup()
-                                .add(jLabel3)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jScrollPane3)))
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 582, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(readyButton)
-                        .add(181, 181, 181))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(ResetP)
-                        .add(136, 136, 136))))
+                                .add(ButtonPreference))))
+                    .add(layout.createSequentialGroup()
+                        .add(25, 25, 25)
+                        .add(jLabel3)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jScrollPane3))
+                    .add(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -321,7 +322,7 @@ public class FoodGui extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(ResetP)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 113, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(AButton)
