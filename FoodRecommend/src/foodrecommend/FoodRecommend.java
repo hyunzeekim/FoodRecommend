@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class FoodRecommend {
     
+    //FIELDS
     double price;
     String spice;
     String hot;
@@ -50,7 +51,7 @@ public class FoodRecommend {
             notNumber[n-11]=Character.toString((char)n);
         }
 
-        //Spicy
+        //Spicy?
         System.out.println("Enter your preference: Spicy or Mild?");
         currentInput = s.next();
         
@@ -61,7 +62,7 @@ public class FoodRecommend {
         spice = currentInput;
         inputs[0] = spice;
         
-        //Hot
+        //Hot?
         System.out.println("Enter your preference: Hot or Cold?");
         currentInput = s.next();
         while (!currentInput.equalsIgnoreCase("Hot") && !currentInput.equalsIgnoreCase("Cold") ){
@@ -70,7 +71,7 @@ public class FoodRecommend {
         }
         hot = currentInput;
         
-        //Price
+        //Price Range
         System.out.println("Please type in the price that you would like to pay in this format (ex 10.00): ");
         currentInput = s.next();
         if(checkIntegerDouble(currentInput).equals("integer")!=true&&
@@ -80,10 +81,16 @@ public class FoodRecommend {
         }
         price = Double.parseDouble(currentInput);
         
+        //Calories
         System.out.println("Please type in the calories that you would like the food to be (ex 350): ");
         currentInput = s.next();
         if(checkIntegerDouble(currentInput).equals("integer")!=true){
             System.out.println("Please enter again in a number form");
+            currentInput = s.next();
+        }
+        calorie = Integer.parseInt(currentInput);
+        if(100 <= calorie || calorie > 500){
+            System.out.println("Please enter your desired calorie again - between 100 and 500: ");
             currentInput = s.next();
         }
         calorie = Integer.parseInt(currentInput);
@@ -143,8 +150,21 @@ public class FoodRecommend {
         String currentInput;
         Scanner s = new Scanner(System.in);
         
+        //Check price range
+        if(3 <= price || price <= 14.50){
+            System.out.println("Please type in your desired price again - between (3 and 14.50): ");
+            currentInput = s.next();
+            if(checkIntegerDouble(currentInput).equals("integer")!=true&&
+                    checkIntegerDouble(currentInput).equals("double")!=true){
+                System.out.println("Please enter again in a number form:");
+                currentInput = s.next();
+            }
+            price = Double.parseDouble(currentInput);
+        }
+        
         System.out.println("You have selected Appetizers; please type in one of the following (Salad / Bread / Soup):");
 
+        //Choose type
         currentInput = s.next();
         while(!currentInput.equalsIgnoreCase("Salad")&&!currentInput.equalsIgnoreCase("Bread")&&
                 !currentInput.equalsIgnoreCase("Soup")){
@@ -180,8 +200,21 @@ public class FoodRecommend {
         String currentInput;
         Scanner s = new Scanner(System.in);
         
+        //Check price range
+        if(9 <= price || price <= 22){
+            System.out.println("Please type in your desired price again - between (9 and 22): ");
+            currentInput = s.next();
+            if(checkIntegerDouble(currentInput).equals("integer")!=true&&
+                    checkIntegerDouble(currentInput).equals("double")!=true){
+                System.out.println("Please enter again in a number form:");
+                currentInput = s.next();
+            }
+            price = Double.parseDouble(currentInput);
+        }        
+        
         System.out.println("You have selected Entree, please type in one of the following (Meat / Seafood / Noodles):");
 
+        //Choose type
         currentInput = s.next();
         while(!currentInput.equalsIgnoreCase("Meat")&&!currentInput.equalsIgnoreCase("Seafood")&&
                 !currentInput.equalsIgnoreCase("Noodles")){
@@ -216,8 +249,21 @@ public class FoodRecommend {
         String currentInput;
         Scanner s = new Scanner(System.in);
         
+        //Check price range
+        if(2.30 <= price || price <= 10){
+            System.out.println("Please type in your desired price again - between (2.30 and 10.00): ");
+            currentInput = s.next();
+            if(checkIntegerDouble(currentInput).equals("integer")!=true&&
+                    checkIntegerDouble(currentInput).equals("double")!=true){
+                System.out.println("Please enter again in a number form:");
+                currentInput = s.next();
+            }
+            price = Double.parseDouble(currentInput);
+        }
+        
         System.out.println("You have selected Desserts, please type in one of the following (Beverage / Fruit / Other):");
 
+        //choose type
         currentInput = s.next();
         while(!currentInput.equalsIgnoreCase("Beverage")&&!currentInput.equalsIgnoreCase("Fruit")&&
                 !currentInput.equalsIgnoreCase("Other")){
@@ -246,6 +292,9 @@ public class FoodRecommend {
         }
         return des;
     }
+    
+    
+    //Check if number is integer
     public static String checkIntegerDouble(String s){
         
         String [] notNumber = new String[244];
