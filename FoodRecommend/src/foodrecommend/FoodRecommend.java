@@ -150,7 +150,7 @@ public class FoodRecommend {
         Scanner s = new Scanner(System.in);
         
         //Check price range
-        if(3 <= price || price <= 14.50){
+        if(3 <= price || price >= 14.50){
             System.out.println("Please type in your desired price again - between (3 and 14.50): ");
             currentInput = s.next();
             if(checkIntegerDouble(currentInput).equals("integer")!=true&&
@@ -202,7 +202,7 @@ public class FoodRecommend {
         Scanner s = new Scanner(System.in);
         
         //Check price range
-        if(9 <= price || price <= 22){
+        if(9 <= price || price >= 22){
             System.out.println("Please type in your desired price again - between (9 and 22): ");
             currentInput = s.next();
             if(checkIntegerDouble(currentInput).equals("integer")!=true&&
@@ -253,7 +253,7 @@ public class FoodRecommend {
         Scanner s = new Scanner(System.in);
         
         //Check price range
-        if(2.30 <= price || price <= 10){
+        if(2.30 <= price || price >= 10){
             System.out.println("Please type in your desired price again - between (2.30 and 10.00): ");
             currentInput = s.next();
             if(checkIntegerDouble(currentInput).equals("integer")!=true&&

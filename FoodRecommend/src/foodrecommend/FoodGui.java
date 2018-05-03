@@ -415,14 +415,21 @@ public class FoodGui extends javax.swing.JFrame {
         
         //Taking in the price input
         currentInput = p.getText();
+        price = Double.parseDouble(p.getText());
+        
         //Checking if the format of price input is correct or not
         if(checkIntegerDouble(currentInput).equals("integer")!=true
                 && checkIntegerDouble(currentInput).equals("double")!=true){
             IncorrectInput.setText("Input failed. Price Input format is incorrect.");
         }
+        
+        else if(price <= 2 || price >= 22){
+            IncorrectInput.setText("Input failed. Enter a price between $2 and $22.");
+        }
+        
         else{
+      
             //If the price input is correct format, take in input
-            price = Double.parseDouble(p.getText());
             
             
         //Taking in the calorie input
