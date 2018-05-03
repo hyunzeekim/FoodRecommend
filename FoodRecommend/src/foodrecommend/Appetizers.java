@@ -6,6 +6,7 @@ package foodrecommend;
 import java.io.FileReader;
 import java.io.IOException;
 
+
 public class Appetizers extends Food {
     Food[] options = new Food[20];
     double[] ratings = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};;
@@ -17,7 +18,7 @@ public class Appetizers extends Food {
         super(n,p,s,h,c,r,c1,c2,c3);             
     }   
     
-     //Check appetizers
+    
     public Food[] checkApp(FileReader f) throws IOException {
         int index = 0;
 
@@ -25,29 +26,33 @@ public class Appetizers extends Food {
         Food[] recommend = new Food[20];
         recommend = super.checkFood(f);
         
-        //Compare inputs to menu
         for(int i = 0; i < recommend.length; i++){
             if (recommend[i] != null) {
-                if(recommend[i].condition1.equals("Y") && fr.app[0].equalsIgnoreCase("Y")){
+                
+                if(recommend[i].condition1.equalsIgnoreCase("Y") && fr.app[0].equalsIgnoreCase("Y")){
+                    
                     options[index] = recommend[i];
                 }
-                else if(recommend[i].condition2.equals("Y") && fr.app[1].equalsIgnoreCase("Y")){
+                else if(recommend[i].condition2.equalsIgnoreCase("Y") && fr.app[1].equalsIgnoreCase("Y")){
+                    
                     options[index] = recommend[i];
                 }
-                else if(recommend[i].condition3.equals("Y") && fr.app[2].equalsIgnoreCase("Y")){
+                else if (recommend[i].condition3.equalsIgnoreCase("Y") && fr.app[2].equalsIgnoreCase("Y")){
+                    
                     options[index] = recommend[i];
-                }
-                else{
-                    options[0] = recommend[0];
-                    options[1] = recommend[1];
                 }
             }
             index++;
         }
+        
+        if (options.length == 0) {
+            options[0] = recommend[0];
+            options[1] = recommend[1];
+        }
+        
         return options;
     }
     
-    //Get rating of food
     public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
         if (ff != null) {
@@ -74,13 +79,10 @@ public class Appetizers extends Food {
                 }            
             }
         }
-        
         return ratings;
     }
     
-    //Get final options
     public Food[] getFood() throws IOException {
-        
         //Used to find highest ratings, and returns an array of index values
         FileReader appetizers = new FileReader("Appetizers.txt");
         Food[] option = checkApp(appetizers); 
@@ -95,7 +97,6 @@ public class Appetizers extends Food {
         return finalOptions;
     }
     
-    //Get two
     public static int[] getTwo(double[] array){
       int index1 = 0;
       int index2 = 0;
@@ -114,10 +115,11 @@ public class Appetizers extends Food {
     return new int[] { index1, index2 };
     }
     
-    //Print the final two outputs
-    public void printAppetizers() throws IOException {
+    public String printAppetizers() throws IOException {
         finalMeals = getFood();
-        super.printFood(finalMeals[0], finalMeals[1]);
+        String result = super.printFood(finalMeals);
+        System.out.println(result);
+        return result;
     }
     
     FoodRecommend fr = new FoodRecommend();
