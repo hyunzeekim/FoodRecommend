@@ -170,9 +170,7 @@ public class FoodRecommend {
             System.out.println("Incorrect format. Please retype ( Salad / Bread / Soup )");
             currentInput = s.next();
         }
-        
-        //currentInput = inputs[5];
-        
+                
         //Return "y" or "n"
         if(currentInput.equalsIgnoreCase("Bread")){
             app[0] = "Y";
@@ -222,9 +220,7 @@ public class FoodRecommend {
             System.out.println("Incorrect format. Please retype (Meat / Seafood / Noodles):");
             currentInput = s.next();
         }
-        
-        //currentInput = inputs[5];
-        
+                
         //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Meat")){
             ent[0] = "Y";
@@ -273,9 +269,7 @@ public class FoodRecommend {
             System.out.println("Incorrect format. Please retype (Beverage / Fruit / Other): ");
             currentInput = s.next();
         }
-        
-        //currentInput = inputs[5];
-        
+                
         //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Beverage")){
             des[0] = "Y";
@@ -366,6 +360,9 @@ public class FoodRecommend {
     }
     //Main 
     public static void main(String[] args) throws IOException { 
+        System.out.println("Welcome! Answer the following questions below and we will find you the most suitable "
+                + "meal for you from our menu. \nMake sure that when entering for price and calories that you are entering"
+                + "in numbers. \nPlease answer the other questions based on the options we give you. \n");
         FoodRecommend f = new FoodRecommend();
         f.InputData();
         String desired = f.askForType();
