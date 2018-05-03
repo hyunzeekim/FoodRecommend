@@ -1,7 +1,7 @@
-Pastrmajlija	17.00 	Mild	Cold	600 	Meat	Y	N	N
-SirloinSteak	22.00 	Mild	Hot	550	Meat	Y	N 	N 
+Pastrmajlija	17.00 	Mild	Cold	500 	Meat	Y	N	N
+SirloinSteak	22.00 	Mild	Hot	500	Meat	Y	N 	N 
 ChilliChicken	15.00  	Spicy 	Hot	310	Meat	Y	N	N
-PulledPork	15.50 	Spicy 	Hot 	550 	Meat	Y 	N 	N
+PulledPork	15.50 	Spicy 	Hot 	500 	Meat	Y 	N 	N
 BeefBrisket	18.25	Mild	Hot	400	Meat	Y	N	N
 ChickenWings	12.00	Mild	Hot	400	Meat	Y	N	N
 LambStew	14.50	Mild	Hot	300	Meat	Y	N	N
@@ -12,9 +12,9 @@ Noodles 	16.00 	Mild 	Hot 	350 	None 	N 	N 	Y
 ChineseNoodles	9.50	Spicy	Cold	400	Gluten	N	N	Y
 ChineseNoodles	9.00	Mild	Cold	350	Gluten	N	N	Y
 Carbonara	12.75	Mild	Hot	500	Gluten	N	N	Y
-ThaiNoodles	13.50	Spicy	Hot	550	Gluten	N	N	Y
+ThaiNoodles	13.50	Spicy	Hot	500	Gluten	N	N	Y
 DynamiteRolls 	15.00 	Mild 	Cold 	400 	None 	N 	Y 	N
-QuinoaSushiMeal 17.00	Mild 	Cold 	600 	None 	N 	Y 	N
+QuinoaSushiMeal 17.00	Mild 	Cold 	500 	None 	N 	Y 	N
 PadThai		12.00	Spicy	Hot	450	None	N 	Y	N
 JumboShrimps	17.50	Mild	Hot	500	Meat	N	Y	N
-SpicySquid	16.50	Spicy	Cold	550	Meat	N	Y	N
+SpicySquid	16.50	Spicy	Cold	500	Meat	N	Y	N

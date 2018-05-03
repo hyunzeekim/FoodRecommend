@@ -1,5 +1,5 @@
-ChocolateSundae 5.00	Mild	Cold	700	None	Y	N	N
-RedWine	10.00	Mild	Cold	300	None	Y	N	N	
+ChocolateSundae 5.00	Mild	Cold	500	None	Y	N	N
+RedWine		10.00	Mild	Cold	300	None	Y	N	N	
 BananaSmoothie	5.00	Mild	Cold	300	None	Y	N	N	
 HotChocolate	3.50	Mild	Hot	400	None	Y	N	N
 MochaLatte	3.00	Mild	Hot	300	None	Y	N	N
@@ -12,9 +12,9 @@ SpicedNutsMix	4.50	Spicy	Cold	200	Peanuts	N	N	Y
 TrailMix	4.25	Mild	Cold	200	Peanuts	N	N	Y
 Cheesecake	7.00	Mild	Cold	500	Gluten	N	N	Y	
 LemonBar	3.00	Mild	Cold	400	Gluten	N	N	Y
-ApplePie	7.00	Mild	Hot	700	Gluten	N	N	Y	
+ApplePie	7.00	Mild	Hot	500	Gluten	N	N	Y	
 ChocolateMousse	6.00	Mild	Cold	500	None	N	N	Y	
-IceCream	4.00	Mild	Cold	550	None	N	N	Y
+IceCream	4.00	Mild	Cold	500	None	N	N	Y
 FudgeBar	3.50	Mild	Hot	400	None	N	N	Y
 PumpkinPie	10.00	Mild	Hot	400	Gluten	N	N	Y
 LemonMousse	3.00	Mild	Cold	250	None	N	N	Y	
