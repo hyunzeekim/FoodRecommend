@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class FoodGui extends javax.swing.JFrame {
     
-//The variables for all food objects(Taking in as input from the user)
+    //The variables for all food objects(Taking in as input from the user)
     double price = -1;
     String spice = "Mild";
     String hot = "Cold";
@@ -34,7 +34,7 @@ public class FoodGui extends javax.swing.JFrame {
     boolean wantEntree = false;
     boolean wantDessert = false;
     
-//Variables that makes sure that the user has actually made inputs
+    //Variables that makes sure that the user has actually made inputs
     boolean typeReady = false;
     boolean preferencesReady = false;
     
@@ -428,22 +428,20 @@ public class FoodGui extends javax.swing.JFrame {
         }
         
         else{
-      
-            //If the price input is correct format, take in input
-            
-            
-        //Taking in the calorie input
+            //Taking in the calorie input
             currentInput = c.getText();
+            
             if(checkIntegerDouble(currentInput).equals("integer")!=true){
                 IncorrectInput.setText("Input failed. Calorie Input format is incorrect.");
             }
+            
             else{
-       //If the calorie input is correct format, take in input
+                //If the calorie input is correct format, take in input
                 calorie = Integer.parseInt(currentInput);
                 currentInput = r.getText();
                 
                 
-       //Taking in the restrictions:
+                //Taking in the restrictions:
                 if(!currentInput.equalsIgnoreCase("Meat")&& !currentInput.equalsIgnoreCase("Peanut")&&!currentInput.equalsIgnoreCase("Gluten") 
                         &&!currentInput.equalsIgnoreCase("None")&&!
                         currentInput.equalsIgnoreCase("Meat;Peanut")&&!currentInput.equalsIgnoreCase("Meat;Gluten")
@@ -455,18 +453,17 @@ public class FoodGui extends javax.swing.JFrame {
                 {
                     IncorrectInput.setText("Incorrect format. Please retype your restrictions(meat/peanut/gluten/none)");
                 }
-       //If the restricion input is correct format, take in input
+                
+                //If the restricion input is correct format, take in input
                 else{
                     restrictions = currentInput;
                     
-      //All preferences input are of correct format, change preferenceReady and output successful sign
+                    //All preferences input are of correct format, change preferenceReady and output successful sign
                     preferencesReady = true;
                     IncorrectInput.setText("Successful input"); 
                 }
             }
-            
-        }
-        
+        } 
     }//GEN-LAST:event_ButtonPreferenceActionPerformed
 
     private void EButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EButtonActionPerformed
@@ -530,7 +527,7 @@ public class FoodGui extends javax.swing.JFrame {
         }
         else{
             wantAppetizer = true;
-;
+
             currentType.setText("Current type: Appetizers");
             
             // Get specific food type from the user
@@ -666,11 +663,9 @@ public class FoodGui extends javax.swing.JFrame {
             
             FinalOutput.setText(result);
 
-            //Output
-            //Instead of f.printDesiredInput(desired), return a string and print the string 
-            //in the output the result in the FinalOutput.setText()
-            
         }
+        
+        //Error messages
         else if (typeReady == false && preferencesReady== false){
             IncorrectInput.setText("You have not entered what type of food you want,\n nor your preferences");
         }
@@ -704,15 +699,12 @@ public class FoodGui extends javax.swing.JFrame {
     }//GEN-LAST:event_SpiceButtonActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_cActionPerformed
 
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_pActionPerformed
 
     private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_rActionPerformed
 
     // The follwing three methods are for the user attempt to enter the food type before selecting the meal type
@@ -736,7 +728,6 @@ public class FoodGui extends javax.swing.JFrame {
     }//GEN-LAST:event_DessertTypeActionPerformed
 
     private void currentTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentTypeActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_currentTypeActionPerformed
 
     //Reset the meal type and food type
@@ -785,9 +776,9 @@ public class FoodGui extends javax.swing.JFrame {
         r.setText("Restrictions");
         IncorrectInput.setText("");
     }//GEN-LAST:event_ResetPActionPerformed
-
+    
+    //Reset
     private void ClearAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearAllActionPerformed
-        // TODO add your handling code here:
         FinalOutput.setText("");
         
         price = -1;
@@ -800,37 +791,89 @@ public class FoodGui extends javax.swing.JFrame {
         r.setText("Restrictions");
         IncorrectInput.setText("");
         
-       currentType.setText("Current type: None");
-       wantAppetizer = false;
-       AppetizerType.setText("Appetizer type");
-       wantEntree = false;
-       EntreeType.setText("Entree type");
-       wantDessert = false;
-       DessertType.setText("Dessert type");
+        currentType.setText("Current type: None");
+        wantAppetizer = false;
+        AppetizerType.setText("Appetizer type");
+        wantEntree = false;
+        EntreeType.setText("Entree type");
+        wantDessert = false;
+        DessertType.setText("Dessert type");
        
-       typeReady = false;
+        typeReady = false;
        
-       bread = "";
-       salad = "";
-       soup = "";
-       meat = "";
-       seafood = "";
-       noodles = "";
-       beverage = "";
-       fruit = "";
-       dessertother = "";
+        bread = "";
+        salad = "";
+        soup = "";
+        meat = "";
+        seafood = "";
+        noodles = "";
+        beverage = "";
+        fruit = "";
+        dessertother = "";
        
-       for(int n = 0; n<3;n++){
+        for(int n = 0; n<3;n++){
            app[n]="N";
            ent[n]="N";
            des[n]="N";         
-       }
-       IncorrectInput.setText("");
+        }
+        IncorrectInput.setText("");
     }//GEN-LAST:event_ClearAllActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    //Check if the input is integer or double or neither
+    public static String checkIntegerDouble(String s){
+        //Making the string array or characters that are not number    
+        String [] notNumber = new String[244];
+        boolean work = true;
+        int n = 0;
+        
+        for(n=0; n<46;n++){
+            notNumber[n]=Character.toString((char)n);
+        }
+        notNumber[46]=Character.toString((char)47);
+        for(n=58;n<255;n++){
+            notNumber[n-11]=Character.toString((char)n);
+        }
+        
+        //If the input contain any of the character that is not a number, it is not a interger nor a double     
+        for(int i = 0;i<notNumber.length;i++){
+            if(s.contains(notNumber[i])){
+                work = false;
+                break;
+            }
+        }
+        //If the string contians only number and "."    
+        if(work == true && s.indexOf(".")!=s.length()-1){
+            
+            // if the string contain "."
+            if(s.contains(".")){
+                if(s.indexOf(".") >= s.length()-3&&
+                        (s.substring(s.indexOf(".")+1).contains("."))==false){
+                    return ("double");
+                }
+                else{
+                    return ("character");
+                }
+            } 
+            //If the string does not contain "."
+            else return ("integer");
+        }
+        
+        else return ("character");
+
+    }
+
+    //Ask for type
+    public String askForType(){
+        if(wantAppetizer == true) return "Appetizers";
+        else if (wantEntree == true) return "Entree";
+        else return "Desserts";
+    }
+    
+    //MAIN
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -862,55 +905,6 @@ public class FoodGui extends javax.swing.JFrame {
             }
         });
     }
-    //Check if the input is integer or double or neither
-    public static String checkIntegerDouble(String s){
-    //Making the string array or characters that are not number    
-        String [] notNumber = new String[244];
-        boolean work = true;
-        int n = 0;
-        
-        for(n=0; n<46;n++){
-            notNumber[n]=Character.toString((char)n);
-        }
-        notNumber[46]=Character.toString((char)47);
-        for(n=58;n<255;n++){
-            notNumber[n-11]=Character.toString((char)n);
-        }
-        
-   //If the input contain any of the character that is not a number, it is not a interger nor a double     
-        for(int i = 0;i<notNumber.length;i++){
-            if(s.contains(notNumber[i])){
-                work = false;
-                break;
-            }
-        }
-    //If the string contians only number and "."    
-        if(work == true && s.indexOf(".")!=s.length()-1){
-            // if the string contain "."
-            if(s.contains(".")){
-                if(s.indexOf(".") >= s.length()-3&&
-                        (s.substring(s.indexOf(".")+1).contains("."))==false){
-                    return ("double");
-                }
-                else{
-                    return ("character");
-                }
-            } 
-            //If the string does not contain "."
-            else return ("integer");
-        }
-    //
-        else return ("character");
-
-    }
-
-    public String askForType(){
-        if(wantAppetizer == true) return "Appetizers";
-        else if (wantEntree == true) return "Entree";
-        else return "Desserts";
-    }
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AButton;
     private javax.swing.JTextField AppetizerType;
