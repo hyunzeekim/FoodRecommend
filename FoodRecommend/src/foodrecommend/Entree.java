@@ -13,12 +13,11 @@ public class Entree extends Food {
     Food[] finalOptions = new Food[20];
     Food[] finalMeals= new Food[2];
    
-    //Same constructor made for this
      public Entree(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
         super(n,p,s,h,c,r,c1,c2,c3);             
     }   
     
-    
+    //Check food
     public Food[] checkEnt(FileReader f) throws IOException {
         int index = 0;
 
@@ -26,6 +25,7 @@ public class Entree extends Food {
         Food[] recommend = new Food[20];
         recommend = super.checkFood(f);
         
+        //Choose based on the user's preference of entree type
         for(int i = 0; i < recommend.length; i++){
             if (recommend[i] != null) {
                 
@@ -53,6 +53,7 @@ public class Entree extends Food {
         return options;
     }
     
+    //get rating for food
     public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
         if (ff != null) {
@@ -82,6 +83,7 @@ public class Entree extends Food {
         return ratings;
     }
     
+    //get Food
     public Food[] getFood() throws IOException {
         //Used to find highest ratings, and returns an array of index values
         FileReader entree = new FileReader("Entree.txt");
@@ -97,6 +99,7 @@ public class Entree extends Food {
         return finalOptions;
     }
     
+    //get two
     public static int[] getTwo(double[] array){
       int index1 = 0;
       int index2 = 0;
@@ -115,6 +118,7 @@ public class Entree extends Food {
     return new int[] { index1, index2 };
     }
     
+    //print entree
     public String printEntree() throws IOException {
         finalMeals = getFood();
         String result = super.printFood(finalMeals);

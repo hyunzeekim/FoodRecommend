@@ -13,12 +13,11 @@ public class Appetizers extends Food {
     Food[] finalOptions = new Food[20];
     Food[] finalMeals= new Food[2];
    
-    //Same constructor made for this
      public Appetizers(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
         super(n,p,s,h,c,r,c1,c2,c3);             
     }   
     
-    
+    //Checking food
     public Food[] checkApp(FileReader f) throws IOException {
         int index = 0;
 
@@ -26,6 +25,7 @@ public class Appetizers extends Food {
         Food[] recommend = new Food[20];
         recommend = super.checkFood(f);
         
+        //Chooses meal absed on user's appetizer type preference
         for(int i = 0; i < recommend.length; i++){
             if (recommend[i] != null) {
                 
@@ -53,6 +53,7 @@ public class Appetizers extends Food {
         return options;
     }
     
+    //Get rating for food
     public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
         if (ff != null) {
@@ -97,6 +98,7 @@ public class Appetizers extends Food {
         return finalOptions;
     }
     
+    //Get two
     public static int[] getTwo(double[] array){
       int index1 = 0;
       int index2 = 0;
@@ -115,6 +117,7 @@ public class Appetizers extends Food {
     return new int[] { index1, index2 };
     }
     
+    //print appetizers
     public String printAppetizers() throws IOException {
         finalMeals = getFood();
         String result = super.printFood(finalMeals);

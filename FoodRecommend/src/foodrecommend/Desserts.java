@@ -13,12 +13,11 @@ public class Desserts extends Food {
     Food[] finalOptions = new Food[20];
     Food[] finalMeals= new Food[2];
    
-    //Same constructor made for this
      public Desserts(String n, double p, String r, int c, String s, String h, String c1, String c2, String c3){
         super(n,p,s,h,c,r,c1,c2,c3);             
     }   
     
-    
+    //checks food
     public Food[] checkDes(FileReader f) throws IOException {
         int index = 0;
 
@@ -26,6 +25,7 @@ public class Desserts extends Food {
         Food[] recommend = new Food[20];
         recommend = super.checkFood(f);
         
+        //chooses meal based on the user's preference of dessert types
         for(int i = 0; i < recommend.length; i++){
             if (recommend[i] != null) {
                 
@@ -53,6 +53,7 @@ public class Desserts extends Food {
         return options;
     }
     
+    //calculates rating 
     public double[] getRating(Food[] ff){
         //Recalculates the ratings for the new array of Food
         if (ff != null) {
@@ -82,6 +83,7 @@ public class Desserts extends Food {
         return ratings;
     }
     
+    //gets food
     public Food[] getFood() throws IOException {
         //Used to find highest ratings, and returns an array of index values
         FileReader desserts = new FileReader("Entree.txt");
@@ -97,6 +99,7 @@ public class Desserts extends Food {
         return finalOptions;
     }
     
+    //gets two
     public static int[] getTwo(double[] array){
       int index1 = 0;
       int index2 = 0;
@@ -115,6 +118,7 @@ public class Desserts extends Food {
     return new int[] { index1, index2 };
     }
     
+    //print desserts
     public String printDesserts() throws IOException {
         finalMeals = getFood();
         String result = super.printFood(finalMeals);
