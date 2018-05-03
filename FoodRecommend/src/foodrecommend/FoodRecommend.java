@@ -24,7 +24,7 @@ public class FoodRecommend {
     String fruit;
     String dessertother;
     
-    static String[] inputs = new String[5];
+    static String[] inputs = new String[6];
     static String[] app = new String[3];
     static String[] ent = new String[3];
     static String[] des = new String[3];
@@ -89,11 +89,7 @@ public class FoodRecommend {
             currentInput = s.next();
         }
         calorie = Integer.parseInt(currentInput);
-        if(100 <= calorie || calorie > 500){
-            System.out.println("Please enter your desired calorie again - between 100 and 500: ");
-            currentInput = s.next();
-        }
-        calorie = Integer.parseInt(currentInput);
+
         
         //Restrictions
         System.out.println("Enter one of the following dietary restrictions (Meat / Peanut / Gluten / None): ");
@@ -172,6 +168,8 @@ public class FoodRecommend {
             currentInput = s.next();
         }
         
+        //currentInput = inputs[5];
+        
         //Return "y" or "n"
         if(currentInput.equalsIgnoreCase("Bread")){
             app[0] = "Y";
@@ -210,7 +208,7 @@ public class FoodRecommend {
                 currentInput = s.next();
             }
             price = Double.parseDouble(currentInput);
-        }        
+        }    
         
         System.out.println("You have selected Entree, please type in one of the following (Meat / Seafood / Noodles):");
 
@@ -221,6 +219,8 @@ public class FoodRecommend {
             System.out.println("Incorrect format. Please retype (Meat / Seafood / Noodles):");
             currentInput = s.next();
         }
+        
+        //currentInput = inputs[5];
         
         //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Meat")){
@@ -270,6 +270,8 @@ public class FoodRecommend {
             System.out.println("Incorrect format. Please retype (Beverage / Fruit / Other): ");
             currentInput = s.next();
         }
+        
+        //currentInput = inputs[5];
         
         //return "y" or "n"
         if(currentInput.equalsIgnoreCase("Beverage")){
@@ -331,30 +333,33 @@ public class FoodRecommend {
     }
     
     //Call methods from subclasses based on user's desired meal type
-    public void printDesiredInput(String want)throws IOException{
+    public String printDesiredInput(String want)throws IOException{
         FoodRecommend f = new FoodRecommend();
 
         //call from appetizer subclass
         if(want.equalsIgnoreCase("Appetizers")){
             f.AppetizersInput();
             Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            a.printAppetizers();
+            return a.printAppetizers();
         }            
         
         //call from entree subclass
         else if(want.equalsIgnoreCase("Entree")){
             f.EntreeInput();
             Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            e.printEntree();
+            return e.printEntree();
         }
         
         //call from desserts subclass
-        else{       
+        else if(want.equalsIgnoreCase("Desserts")){       
             f.DessertInput();
             Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
-            d.printDesserts();
+            return d.printDesserts();
         }    
         
+        else{
+            return "No recommendations";
+        }
     }
     //Main 
     public static void main(String[] args) throws IOException { 
