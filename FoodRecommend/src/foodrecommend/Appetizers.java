@@ -118,7 +118,6 @@ public class Appetizers extends Food {
     public String printAppetizers() throws IOException {
         finalMeals = getFood();
         String result = super.printFood(finalMeals);
-        System.out.println(result);
         return result;
     }
     
