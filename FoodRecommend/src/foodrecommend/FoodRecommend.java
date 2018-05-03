@@ -1,5 +1,8 @@
 /*
  * FoodTester Class
+ * This is for users who do not want to use the GUI.
+ * User simply answers the questions asked and the program outputs the results.
+ * For a more user-friendly interface, run the GUI.
  */
 package foodrecommend;
 import java.io.IOException;

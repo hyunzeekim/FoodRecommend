@@ -3,6 +3,14 @@
  */
 package foodrecommend;
 
+import static foodrecommend.FoodRecommend.app;
+import static foodrecommend.FoodRecommend.ent;
+import static foodrecommend.FoodRecommend.des;
+import static foodrecommend.FoodRecommend.inputs;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class FoodGui extends javax.swing.JFrame {
     
 //The variables for all food objects(Taking in as input from the user)
@@ -11,17 +19,6 @@ public class FoodGui extends javax.swing.JFrame {
     String hot = "Cold";
     int calorie = -1;
     String restrictions;
-    
-//The specific variables for the subclasses(Taking in as input from the user)
-/*    boolean bread = false;
-    boolean salad = false;
-    boolean soup = false;
-    boolean meat = false;
-    boolean seafood = false;
-    boolean noodles = false;
-    boolean beverage = false;
-    boolean fruit = false;
-    boolean dessertother = false;*/
     
     String bread;
     String salad;
@@ -33,16 +30,9 @@ public class FoodGui extends javax.swing.JFrame {
     String fruit;
     String dessertother;
     
-    String[] app = {"N","N","N"};;
-    String[] ent = {"N","N","N"};
-    String[] des = {"N","N","N"};
-    
     boolean wantAppetizer = false;
     boolean wantEntree = false;
     boolean wantDessert = false;
-    /**
-     * Creates new form FoodGui
-     */
     
 //Variables that makes sure that the user has actually made inputs
     boolean typeReady = false;
@@ -117,7 +107,7 @@ public class FoodGui extends javax.swing.JFrame {
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("1. If you would like spicy food, press the spicy button.\n\n2. If you would like hot food, press the hot button.\n\n3.To enter your preferences, please enter the calorie and price that you would prefer.\n       To enter calorie, please enter an integer in this format: (Eg:1400)\n       To enter price, please enter a number in this format: (Eg: 10.00)\n       To enter restrictions, please type in Meat/Gluten/Peanuts/None. If you have multiple \n       restricions, please seperate them with a semicolon (e.g. meat;gluten)");
+        jTextArea2.setText("1. If you would like spicy food, press the spicy button.\n\n2. If you would like hot food, press the hot button.\n\n3.To enter your preferences, please enter the calorie and price that you would prefer.\n       To enter calorie, please enter an integer in this format: (Eg:1400)\n       To enter price, please enter a number in this format: (Eg: 10.00)\n       To enter restrictions, please type in Meat/Gluten/Peanuts/None. If you have multiple \n       restricions, please seperate them with a semicolon (e.g. meat;gluten)\n\nAFTER CHOOSING YOUR PREFERENCES PRESS THE 'ENTRE PREFERENCES' BUTTON!");
         jScrollPane6.setViewportView(jTextArea2);
 
         SpiceButton.setText("Spicy");
@@ -173,7 +163,7 @@ public class FoodGui extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("4. Decide what type of meal you would like (Appetizers/Entree/Desserts).\n\n5. Enter the type of food that you would like and click on that corresponding meal type \n    button. (e.g. choose bread then click Appetizers)\n\tFor appetizers, the food types are bread / salad / soup.\n\tFor entree, the food types are meat / seafood / noodles.\n\tFor dessert, ythe food types are beverages / fruits / other.");
+        jTextArea1.setText("4. Decide what type of meal you would like (Appetizers/Entree/Desserts).\n\n5. Enter the type of food that you would like and click on that corresponding meal type \n    button. (e.g. type in bread then click Appetizers)\n\tFor appetizers, the food types are bread / salad / soup.\n\tFor entree, the food types are meat / seafood / noodles.\n\tFor dessert, the food types are beverages / fruits / other.");
         jScrollPane1.setViewportView(jTextArea1);
 
         AButton.setText("Appetizer");
@@ -270,85 +260,84 @@ public class FoodGui extends javax.swing.JFrame {
 
         jLabel3.setText("Input Status:");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/xiaohan/Desktop/Menu Images/title.jpg.png")); // NOI18N
-
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(ResetP)
-                .add(132, 132, 132))
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(124, 124, 124)
+                        .add(jLabel2))
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                            .add(31, 31, 31)
+                            .add(jLabel6)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 526, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel3)
+                                .add(jLabel5))
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jPanel1Layout.createSequentialGroup()
+                                    .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 121, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(currentType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 142, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(jPanel1Layout.createSequentialGroup()
+                                    .add(6, 6, 6)
+                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                        .add(jPanel1Layout.createSequentialGroup()
+                                            .add(readyButton)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .add(ClearAll))
+                                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 494, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(43, Short.MAX_VALUE))
             .add(jPanel1Layout.createSequentialGroup()
                 .add(31, 31, 31)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 588, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 588, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(0, 0, Short.MAX_VALUE))
-                    .add(jPanel1Layout.createSequentialGroup()
                         .add(6, 6, 6)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 582, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(SpiceButton)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(hotButton)
-                                .add(18, 18, 18)
-                                .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(ButtonPreference)))
-                        .addContainerGap(42, Short.MAX_VALUE))))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(20, 20, 20)
-                        .add(jLabel4)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(AButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(EButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(DButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(ResetType))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(19, 19, 19)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel3)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 513, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel6)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jScrollPane4))))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(21, 21, 21)
-                        .add(jLabel5)
+                        .add(SpiceButton)
                         .add(18, 18, 18)
-                        .add(AppetizerType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 121, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(EntreeType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(DessertType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(currentType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 177, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(hotButton)
+                        .addContainerGap(486, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(61, 61, 61)
-                        .add(readyButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(ClearAll))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(124, 124, 124)
-                        .add(jLabel2)))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jLabel4)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(AButton)
+                                .add(36, 36, 36)
+                                .add(EButton)
+                                .add(31, 31, 31)
+                                .add(DButton)
+                                .add(18, 18, 18)
+                                .add(ResetType))
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 588, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 588, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 588, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(26, 26, 26)
+                                        .add(c, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(18, 18, 18)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .add(r, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                .add(18, 18, 18)
+                                                .add(ButtonPreference))
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, ResetP))))))
+                        .add(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -356,9 +345,9 @@ public class FoodGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 51, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 160, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 180, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(SpiceButton)
@@ -369,7 +358,7 @@ public class FoodGui extends javax.swing.JFrame {
                     .add(ButtonPreference))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(ResetP)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -621,9 +610,9 @@ public class FoodGui extends javax.swing.JFrame {
 
     private void readyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readyButtonActionPerformed
         if(typeReady == true && preferencesReady == true){
-            //Inpputs
+            //Inputs
+            String result = "";
             //The preferences Inputs in an array that is the same format as foodRecommend
-            String [] inputs = new String[5];
             inputs[0] = spice;
             inputs[1] = hot;
             inputs[2] = Double.toString(price);
@@ -631,13 +620,46 @@ public class FoodGui extends javax.swing.JFrame {
             inputs[4] = restrictions;
             //Meal type input in the same format as foodRecommend
             String desired = askForType();
+            
             //For the food type inpput, just directly write app and salad etc, they are global variables
-           
+            FoodRecommend f = new FoodRecommend();
+
+            //call from appetizer subclass
+            if(desired.equalsIgnoreCase("Appetizers")){
+                Appetizers a = new Appetizers("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+                try {
+                    result = a.printAppetizers();
+                } catch (IOException ex) {
+                    Logger.getLogger(FoodGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }            
+
+            //call from entree subclass
+            else if(desired.equalsIgnoreCase("Entree")){
+                Entree e = new Entree("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+                try {
+                     result = e.printEntree();
+                } catch (IOException ex) {
+                    Logger.getLogger(FoodGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            //call from desserts subclass
+            else{       
+                Desserts d = new Desserts("", Double.parseDouble(inputs[2]), inputs[4], Integer.parseInt(inputs[3]), inputs[0], inputs[1], app[0], app[1], app[2]);
+                try {
+                    result = d.printDesserts();
+                } catch (IOException ex) {
+                    Logger.getLogger(FoodGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }    
+            
+            FinalOutput.setText(result);
+
             //Output
             //Instead of f.printDesiredInput(desired), return a string and print the string 
             //in the output the result in the FinalOutput.setText()
             
-            FinalOutput.setText("");
         }
         else if (typeReady == false && preferencesReady== false){
             IncorrectInput.setText("You have not entered what type of food you want,\n nor your preferences");
@@ -873,23 +895,12 @@ public class FoodGui extends javax.swing.JFrame {
     }
 
     public String askForType(){
-        if(wantAppetizer == true) return "Appetizer";
+        if(wantAppetizer == true) return "Appetizers";
         else if (wantEntree == true) return "Entree";
         else return "Desserts";
     }
     
-/*    public static boolean ToBoolean(String decision){
-        if(decision.equalsIgnoreCase("Y")){
-            return true;
-        }
-        else return false;
-    }
-    public static boolean CheckInput(String decision){
-        if (decision.equalsIgnoreCase("Y")||decision.equalsIgnoreCase("N")){
-            return true;
-        }
-        else return false;
-    }*/
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AButton;
     private javax.swing.JTextField AppetizerType;

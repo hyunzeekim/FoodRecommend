@@ -122,6 +122,7 @@ public class Desserts extends Food {
     public String printDesserts() throws IOException {
         finalMeals = getFood();
         String result = super.printFood(finalMeals);
+        System.out.println(result);
         return result;
     }
     
